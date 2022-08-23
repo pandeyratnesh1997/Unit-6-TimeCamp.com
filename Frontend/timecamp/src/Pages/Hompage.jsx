@@ -1,0 +1,1 @@
+// write each pages frontend logic in this folder eg. Homepage.jsx,  Login.jsx , Signup.jsx etc
