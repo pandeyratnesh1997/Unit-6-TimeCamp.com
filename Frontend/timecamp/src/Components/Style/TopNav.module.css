@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
+
+.TopNav_container{
+    background-color: #fff;
+    padding: 1.25rem 1rem;
+    box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+    transition: all .2s;
+    font-family: 'Nunito Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+.m_flex{
+    /* border: 1px solid black; */
+    width: 76%;
+    margin: auto;
+    align-items: center;
+}
+
+.fixed_top {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.extra_bar{
+    position: relative;
+    z-index: 123123;
+    text-align: center;
+    padding: 1em;
+    background-color: #25cf60;
+    color: #fff;
+}
+
+.mid_part{
+    /* border: 1px solid; */
+    width: 35%;
+    color: rgb(51, 51, 51);
+    font-weight: 600;
+    margin-left: 10%;
+}
+
+.common_btn{
+    font-weight: 600;
+    color: rgb(51, 51, 51);
+}
+
+.last_part{
+    width: auto;
+    /* border: 1px solid; */
+    margin-left: 5%;
+
+}
+
+.tracking_btn{
+    border-radius: 50px;
+    padding: 15px 35px;
+    background-color: #fcbc31;
+    color: white;
+    font-weight: bold;
+}
+
+.menulist_items img{
+    margin-right: 20px;
+}
+
+.menulist_items button:hover{
+    background-color: #23d260;
+    border-radius: 6px;
+}
