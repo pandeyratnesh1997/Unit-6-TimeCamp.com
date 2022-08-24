@@ -4,7 +4,7 @@ import RoutePage from './Routes/RoutePage';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <RoutePage/>
     </div>
   );
