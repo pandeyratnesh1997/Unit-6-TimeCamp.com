@@ -1,1 +1,0 @@
-// write only reusable components in this folder. eg. Navbar, footer etc
