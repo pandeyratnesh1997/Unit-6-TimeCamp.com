@@ -7,10 +7,12 @@ import TopNav from '../Components/TopNav'
 
 const RoutePage = () => {
   return (
+
     <>
       <TopNav/>
       <Sidebar/>
     </>
+
   )
 }
 
