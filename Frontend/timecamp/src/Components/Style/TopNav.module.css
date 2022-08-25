@@ -1,71 +1,260 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
 
-.TopNav_container{
-    background-color: #fff;
-    padding: 1.25rem 1rem;
+
+
+.TopNavContainer {
+  background-color: #fff;
+  padding: 1.25rem 1rem;
+  box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+  transition: all 0.2s;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.fixed{
+  background-color: #fff;
+  padding: 1.25rem 1rem;
+  box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+  transition: all 0.2s;
+  font-family: "Nunito Sans", sans-serif;
+  position: fixed;
+  right:0;
+  left:0;
+  top:0;
+  width:100%;
+  margin-bottom: 120rem;
+}
+
+
+.m_flex {
+  /* border: 1px solid black; */
+  width: 76%;
+  margin: auto;
+  align-items: center;
+}
+
+
+.extra_bar {
+  position: relative;
+  z-index: 123123;
+  text-align: center;
+  padding: 1em;
+  background-color: #25cf60;
+  color: #fff;
+}
+
+.mid_part {
+  /* border: 1px solid; */
+  width: 35%;
+  color: rgb(51, 51, 51);
+  font-weight: 600;
+  margin-left: 10%;
+}
+
+.common_btn {
+  font-weight: 600;
+  color: rgb(51, 51, 51);
+}
+
+.last_part {
+  width: auto;
+  /* border: 1px solid; */
+  margin-left: 5%;
+}
+
+.tracking_btn {
+  border-radius: 50px;
+  padding: 15px 35px;
+  background-color: #fcbc31;
+  color: white;
+  font-weight: bold;
+}
+
+.menulist_items img {
+  margin-right: 20px;
+}
+
+.menulist_items button:hover {
+  background-color: #23d260;
+  border-radius: 6px;
+}
+
+.TopNavContainer2, .fixed2 {
+  display: none;
+}
+
+/* RESPONSIVENESS */
+
+/* 1. Medium Screen  */
+
+@media only screen and (max-width: 1020px) and (min-width: 767px) {
+    .TopNavContainer, .fixed{
+      display: none;
+    }
+ 
+    .TopNavContainer2 {
+      display: block;
+      height: auto;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+    }
+
+    .fixed2{
+      display: block;
+      height: auto;
+      background-color: #fff;
+      transition: all 0.2s;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+      font-family: "Nunito Sans", sans-serif;
+      position: fixed;
+      right:0;
+      left:0;
+      top:0;
+      width:100%
+    }
+  
+    .TopNavContainer2 svg {
+      font-size: 25px;
+    }
+  
+    .tracking_btn_2 {
+      border-radius: 50px;
+      padding: 15px 35px;
+      background-color: #fcbc31;
+      color: white;
+      font-weight: bold;
+      width: 95%;
+      margin: auto;
+    }
+  }
+
+@media only screen and (max-width: 768px) and (min-width: 481px) {
+  .TopNavContainer, .fixed {
+    display: none;
+  }
+
+  .TopNavContainer2 {
+    display: block;
+    height: auto;
     box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
-    transition: all .2s;
-    font-family: 'Nunito Sans', sans-serif;
-    box-sizing: border-box;
-}
+    padding-bottom: 20px;
+  }
 
-.m_flex{
-    /* border: 1px solid black; */
-    width: 76%;
-    margin: auto;
-    align-items: center;
-}
+  .fixed2{
+      display: block;
+      height: auto;
+      background-color: #fff;
+      transition: all 0.2s;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+      font-family: "Nunito Sans", sans-serif;
+      position: fixed;
+      right:0;
+      left:0;
+      top:0;
+      width:100%
+  }
 
-.fixed_top {
-    position: sticky;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-}
+  .TopNavContainer2 svg {
+    font-size: 25px;
+  }
 
-.extra_bar{
-    position: relative;
-    z-index: 123123;
-    text-align: center;
-    padding: 1em;
-    background-color: #25cf60;
-    color: #fff;
-}
-
-.mid_part{
-    /* border: 1px solid; */
-    width: 35%;
-    color: rgb(51, 51, 51);
-    font-weight: 600;
-    margin-left: 10%;
-}
-
-.common_btn{
-    font-weight: 600;
-    color: rgb(51, 51, 51);
-}
-
-.last_part{
-    width: auto;
-    /* border: 1px solid; */
-    margin-left: 5%;
-
-}
-
-.tracking_btn{
+  .tracking_btn_2 {
     border-radius: 50px;
     padding: 15px 35px;
     background-color: #fcbc31;
     color: white;
     font-weight: bold;
+    width: 95%;
+    margin: auto;
+  }
 }
 
-.menulist_items img{
-    margin-right: 20px;
+
+
+/* 2. small Screen  */
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+    .TopNavContainer, .fixed {
+      display: none;
+    }
+  
+    .TopNavContainer2 {
+      display: block;
+      height: auto;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+    }
+    .fixed2{
+      display: block;
+      height: auto;
+      background-color: #fff;
+      transition: all 0.2s;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+      font-family: "Nunito Sans", sans-serif;
+      position: fixed;
+      right:0;
+      left:0;
+      top:0;
+      width:100%
+    }
+  
+    .TopNavContainer2 svg {
+      font-size: 25px;
+    }
+  
+    .tracking_btn_2 {
+      border-radius: 50px;
+      padding: 15px 35px;
+      background-color: #fcbc31;
+      color: white;
+      font-weight: bold;
+      width: 95%;
+      margin: auto;
+    }
 }
 
-.menulist_items button:hover{
-    background-color: #23d260;
-    border-radius: 6px;
+
+@media only screen and (max-width: 320px) and (min-width: 60px) {
+    .TopNavContainer, .fixed {
+      display: none;
+    }
+  
+    .TopNavContainer2 {
+      display: block;
+      height: auto;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+    }
+    .fixed2{
+      display: block;
+      height: auto;
+      background-color: #fff;
+      transition: all 0.2s;
+      box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
+      padding-bottom: 20px;
+      font-family: "Nunito Sans", sans-serif;
+      position: fixed;
+      right:0;
+      left:0;
+      top:0;
+      width:100%;
+      border: 1px solid;
+      margin-bottom: 200px;
+    }
+  
+    .TopNavContainer2 svg {
+      font-size: 25px;
+    }
+  
+    .tracking_btn_2 {
+      border-radius: 50px;
+      padding: 15px 35px;
+      background-color: #fcbc31;
+      color: white;
+      font-weight: bold;
+      width: 95%;
+      margin: auto;
+    }
 }
