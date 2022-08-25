@@ -1,0 +1,22 @@
+.top_sec{
+    height: 5rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.top_sec_flex{
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 75%;
+    margin: auto;
+}
+
+.sign_in_div{
+    width: 40%;
+    margin: 150px auto;
+}
