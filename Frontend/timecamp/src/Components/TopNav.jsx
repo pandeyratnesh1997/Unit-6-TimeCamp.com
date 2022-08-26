@@ -195,6 +195,7 @@ const TopNav = () => {
                 </Button>
               </Box>
               <Box>
+                <Routerlink to="/register">
                 <Button
                   className={styles.common_btn}
                   bg="none"
@@ -202,6 +203,7 @@ const TopNav = () => {
                 >
                   Sign in
                 </Button>
+                </Routerlink>
               </Box>
               <Box>
                 <button className={styles.tracking_btn}>
