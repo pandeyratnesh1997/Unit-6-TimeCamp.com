@@ -35,7 +35,7 @@ ProjectController.delete('/',async(req,res)=>{
     const {project_id, user_id} = req.body;
     const project = await ProjectModel.find({project_id});
     if(project.user_id===user_id){
-        +await ProjectModel.findByIdAndDelete({_id : project_id});
+        await ProjectModel.findByIdAndDelete({_id : project_id});
         return res.status(200).send({message : "project deleted successfully"});
 
     }else{

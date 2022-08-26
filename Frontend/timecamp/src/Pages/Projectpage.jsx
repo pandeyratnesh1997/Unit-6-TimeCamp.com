@@ -1,10 +1,44 @@
-import React from 'react'
-import {Box, Button, Flex, Container, HStack,Text, Select, Input} from '@chakra-ui/react'
+import React, { useState } from 'react'
+import axios from 'axios'
+import {Box, Button, Flex, Container, HStack,Text, Select, Input, VStack} from '@chakra-ui/react'
 import {CgProfile} from 'react-icons/cg'
 import {IoPersonAddOutline} from 'react-icons/io5';
 import styles from '../Styled/projectpage.module.css';
+import ProjectCard from '../Components/ProjectCard';
+import { useEffect } from 'react';
 
 const Projectpage = () => {
+    const [project,setproject] = useState("");;
+    const [allProjects, setAllProjects] = useState([])
+    const handleAdd = async(e)=>{
+        e.preventDefault();
+        let url = "http://localhost:5000/project"
+        const payload = {
+            project_name : project,
+            user_id : 1
+        }
+        try {
+            let res = await axios.post(url,payload);
+            console.log(res)
+        } catch (error) {
+            console.log("error while createing project", error)
+        }
+        
+
+    }
+    const getProject = async()=>{
+        try {
+           let res = await axios.get("http://localhost:5000/project");
+           setAllProjects(res.data);
+        } catch (error) {
+            console.log("error", error)
+        }
+    }
+
+    useEffect(()=>{
+        getProject()
+    },[])
+    
   return (
     <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='40'>
     <Container mb={'20'}>
@@ -28,14 +62,23 @@ const Projectpage = () => {
 
             </HStack>
         </Box>
-        <Box>
+        <Box mb={'8'}>
             <HStack gap={'2'}>
-                <Input w='60'></Input>
-                <Button size={'md'} colorScheme='green'>Add</Button>
+                <Input w='60' placeholder='Enter project name' value={project} onChange={(e)=>setproject(e.target.value)}></Input>
+                <Button size={'md'} colorScheme='green' onClick={(e)=>handleAdd(e)}>Add</Button>
                 <Button variant={'outline'} size='md'>Cancel</Button>
             </HStack>
         </Box>
-    
+        {allProjects?.map((el)=>{
+            return(
+                <Box key={el._id}>
+            
+                <ProjectCard {...el}/>
+                </Box>
+        
+            )
+        })}
+        
         
     </Box>
   )
