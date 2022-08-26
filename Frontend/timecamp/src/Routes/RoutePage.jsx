@@ -16,10 +16,10 @@ import Signin from "../Pages/Signin";
 const RoutePage = () => {
   return (
     <>
-      <Projectpage />
+      {/* <Projectpage />
       <TopNav />
       <Homepage />
-      <Footer />
+      <Footer /> */}
       <Routes>
         <Route path="/register" element={<Signin/>}/>
         <Route path="/login" element={<Login/>}/>
