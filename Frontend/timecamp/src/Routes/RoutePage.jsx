@@ -15,10 +15,10 @@ const RoutePage = () => {
     <>
 
       <Projectpage/>
-
+{/* 
       <TopNav/>
       <Homepage/>
-      <Footer/>
+      <Footer/> */}
   </>
 
   )

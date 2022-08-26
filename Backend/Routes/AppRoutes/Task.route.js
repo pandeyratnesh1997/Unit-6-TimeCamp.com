@@ -23,7 +23,8 @@ TaskController.post('/task', async(req,res)=>{
 })
 TaskController.get('/task', async(req,res)=>{
     const {user_id, project_id}  = req.body;
-    const task = TaskModel.find({user_id, project_id});
+    const task =  await TaskModel.find({ project_id});
+   
     return res.status(200).send(task)
 })
 
