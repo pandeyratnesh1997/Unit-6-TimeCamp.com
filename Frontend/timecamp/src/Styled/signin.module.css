@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
+
+
 .top_sec{
     height: 5rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
@@ -6,6 +9,8 @@
     left: 0;
     right: 0;
     z-index: 1000;
+    background: #fff;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 .top_sec_flex{
@@ -17,6 +22,230 @@
 }
 
 .sign_in_div{
-    width: 40%;
+    width: 32%;
+    max-width:500px;
     margin: 150px auto;
+    box-shadow: rgba(124, 124, 124, 0.35) 0px 5px 15px;
+    border-radius: 23px;
+    padding: 15px 20px;
+    z-index: -1;
+    /* font-family: "Nunito Sans", sans-serif; */
+}
+
+.sign_in_div h1{
+    color: #1b1b20;
+    text-align: center;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 40px;
+    margin: 20px 4px;
+}
+
+.sign_in_div h2{
+    color: #767676;
+    text-align: center;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+    padding: 2px 30px;
+    margin: 20px 4px 12px 4px;
+}
+
+.sign_in_div h4{
+    color: #767676;
+    text-align: center;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    text-align: center;
+    padding: 2px 30px;
+    margin: 15px 4px 24px 4px;
+}
+
+.google_sign{
+    width: 80%;
+    margin: auto;
+    border: 1px solid rgb(211, 210, 210);
+    align-items: center;
+}
+.google_sign p{
+    color: gray;
+}
+
+.google_sign svg{
+    font-size: 30px;
+    margin: 0% 10% 0% 5%;
+}
+
+.or_text{
+    text-align: center;
+    margin: 18px auto;
+    font-size: 15px;
+    color: #2f2f2f;
+}
+
+.sign_in_input{
+    margin: 13px auto;
+    display: flex;
+}
+
+.sign_up_btn{
+    margin: 30px auto;
+    color: white;
+    width: 50%;
+}
+
+.terms{
+    text-align: left;
+    padding: 10px 40px;
+    font-size: 14px;
+}
+
+.terms span{
+    color: rgb(4, 232, 4);
+    font-weight: 600;
+}
+
+.show_hide_btn svg{
+    font-size: 22px;
+}
+
+@media only screen and (max-width:1100px) and (min-width:770px){
+    .sign_in_div{
+        width: 50%;
+        max-width:700px;
+        margin: 150px auto;
+        box-shadow: rgba(124, 124, 124, 0.35) 0px 5px 15px;
+        border-radius: 23px;
+        padding: 15px 20px;
+        z-index: -1;
+        /* font-family: "Nunito Sans", sans-serif; */
+    }
+
+    .sign_in_div h1{
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .sign_in_div h2{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 26px;
+        padding: 2px 30px;
+        margin: 20px 4px 12px 4px;
+    }
+
+    .google_sign svg{
+        font-size: 20px;
+        margin: 0% 10% 0% 0%;
+    }
+
+    .show_hide_btn svg{
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width:768px) and (min-width:481px){
+    .sign_in_div{
+        width: 80%;
+        max-width:700px;
+        margin: 150px auto;
+        box-shadow: rgba(124, 124, 124, 0.35) 0px 5px 15px;
+        border-radius: 23px;
+        padding: 15px 20px;
+        z-index: -1;
+        /* font-family: "Nunito Sans", sans-serif; */
+    }
+
+    .sign_in_div h1{
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .sign_in_div h2{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 26px;
+        padding: 2px 30px;
+        margin: 20px 4px 12px 4px;
+    }
+    .google_sign svg{
+        font-size: 30px;
+        margin: 0% 10% 0% -12%;
+    }
+
+    .show_hide_btn svg{
+        font-size: 20px;
+    }
+   
+}
+
+@media only screen and (max-width:480px) and (min-width:280px){
+    .sign_in_div{
+        width: 80%;
+        max-width:700px;
+        margin: 150px auto;
+        box-shadow: rgba(124, 124, 124, 0.35) 0px 5px 15px;
+        border-radius: 23px;
+        padding: 10px 12px;
+        z-index: -1;
+        /* font-family: "Nunito Sans", sans-serif; */
+    }
+
+    .sign_in_div h1{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 40px;
+        margin: 10px 4px;
+    }
+
+    .sign_in_div h2{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        padding: 2px 10px;
+        margin: 10px 4px 12px 4px;
+    }
+
+    .sign_in_div h4{
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 26px;
+        padding: 2px 10px;
+        margin: 15px 4px 24px 4px;
+    }
+
+    .or_text{
+        margin: 10px auto;
+        font-size: 13px;
+    }
+    
+    .google_sign svg{
+        font-size: 20px;
+        margin: 0% 10% 0% -12%;
+    }
+    .google_sign p{
+        font-size: 12px;
+    }
+
+    .google_sign{
+        width: 90%;
+    }
+
+    .show_hide_btn svg{
+        font-size: 17px;
+    }
+
+    .sign_up_btn{
+        margin: 30px auto;
+        color: white;
+        width: 70%;
+    }
+    
+    .sign_up_btn p{
+       font-size: 14px;
+    }
 }
