@@ -15,6 +15,8 @@ import Signin from "../Pages/Signin";
 const RoutePage = () => {
   return (
     <>
+
+
       <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/project" element={<Projectpage/>}/>
@@ -27,6 +29,7 @@ const RoutePage = () => {
         <Route path="/register" element={<Signin/>}/>
         <Route path="/login" element={<Login/>}/>
       </Routes>
+
     </>
   );
 };
