@@ -9,8 +9,8 @@ import Billing from '../Pages/Billing'
 const RoutePage = () => {
   return (
     <>
-      <TopNav/>
-      <Sidebar/>
+      {/* <TopNav/>
+      <Sidebar/> */}
       <Billing/>
     </>
   )
