@@ -1,6 +1,7 @@
 // write all route link here and add on app.js
 
 
+
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Sidebar from "../Components/Sidebar";
@@ -25,6 +26,7 @@ const RoutePage = () => {
     </>
   );
 };
+
 
 
 

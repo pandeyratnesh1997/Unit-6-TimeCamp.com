@@ -1,6 +1,8 @@
 // write authentication middlewere here
 // create a seperate file for each middlewere eg. Validator.js , Autorisation.js etc
 
+
+
 const jwt = require('jsonwebtoken');
 
 
@@ -23,4 +25,5 @@ const authentication = (req, res, next) => {
 }
 
 module.exports = authentication
+
 
