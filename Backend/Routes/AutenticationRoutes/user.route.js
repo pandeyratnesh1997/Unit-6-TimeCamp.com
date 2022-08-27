@@ -1,4 +1,3 @@
-// write login signup route here
 
 // write login signup route here
 
@@ -89,3 +88,4 @@ module.exports = {
     UserController,
     GoogleController
 }
+

@@ -6,6 +6,7 @@ import {IoPersonAddOutline} from 'react-icons/io5';
 import styles from '../Styled/projectpage.module.css';
 import ProjectCard from '../Components/ProjectCard';
 import { useEffect } from 'react';
+import EditPage from './EditPage';
 
 const Projectpage = () => {
     const [project,setproject] = useState("");;
@@ -28,8 +29,9 @@ const Projectpage = () => {
     }
     const getProject = async()=>{
         try {
-           let res = await axios.get("http://localhost:5000/project");
-           setAllProjects(res.data);
+           let res = await axios.get("http://localhost:5000/project", {user_id : 1});
+           setAllProjects(res.data.project);
+           console.log(res)
         } catch (error) {
             console.log("error", error)
         }
@@ -69,6 +71,8 @@ const Projectpage = () => {
                 <Button variant={'outline'} size='md'>Cancel</Button>
             </HStack>
         </Box>
+        <HStack >
+            <Box>
         {allProjects?.map((el)=>{
             return(
                 <Box key={el._id}>
@@ -78,7 +82,12 @@ const Projectpage = () => {
         
             )
         })}
-        
+        </Box>
+        <Box ml={'80%'}>
+            <EditPage/>
+        </Box>
+       
+        </HStack>
         
     </Box>
   )

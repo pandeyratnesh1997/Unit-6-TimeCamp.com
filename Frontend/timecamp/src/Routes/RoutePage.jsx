@@ -1,6 +1,7 @@
 // write all route link here and add on app.js
 
 
+
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Footer from "../Components/Footer";
@@ -27,6 +28,7 @@ const RoutePage = () => {
     </>
   );
 };
+
 
 
 
