@@ -48,6 +48,7 @@ export const reducer = (state=initialState, {type, payload}) => {
                 isLoading:false,
                 isError:false,
                 token:payload,
+                isAuth:true
             }
         }
         case LOGIN_FAILURE : {
