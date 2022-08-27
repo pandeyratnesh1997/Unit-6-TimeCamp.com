@@ -29,9 +29,15 @@ export const register = (payload) => (dispatch) => {
 export const login = (payload) => (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
   return axios
-    .post("http://localhost:8080/user/login", payload)
-    .then((response) =>
+    .post("http://localhost:5000/user/login", payload)
+    .then((response) =>{
       dispatch({ type: LOGIN_SUCCESS, payload: response.data })
+      return {...response,LOGIN_SUCCESS};
+    }
     )
-    .catch((err) => dispatch({ type: LOGIN_FAILURE }));
+    .catch((err) => {
+      dispatch({ type: LOGIN_FAILURE })
+      return LOGIN_FAILURE;
+    })
+    
 };
