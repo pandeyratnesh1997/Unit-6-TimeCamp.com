@@ -15,11 +15,12 @@ ProjectController.post('/', async(req,res)=>{
 })
 ProjectController.get("/", async(req,res)=>{
     const {user_id} = req.body;
-    const project = await ProjectModel.find({user_id});
+    const project = await ProjectModel.find();
+    
    return res.send({project})
 });
 
-ProjectController.patch('/',async(req,res)=>{
+ProjectController.patch('/:projectid/edit',async(req,res)=>{
     const {project_id, user_id, project_name} = req.body;
     const project = await ProjectModel.find({project_id});
     if(project.user_id===user_id){
@@ -35,7 +36,7 @@ ProjectController.delete('/',async(req,res)=>{
     const {project_id, user_id} = req.body;
     const project = await ProjectModel.find({project_id});
     if(project.user_id===user_id){
-        +await ProjectModel.findByIdAndDelete({_id : project_id});
+        await ProjectModel.findByIdAndDelete({_id : project_id});
         return res.status(200).send({message : "project deleted successfully"});
 
     }else{

@@ -6,7 +6,7 @@
   background-color: #fff;
   padding: 1.25rem 1rem;
   box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
-  transition: all 0.2s;
+  /* transition: all 0.2s; */
   font-family: "Nunito Sans", sans-serif;
 }
 
@@ -14,7 +14,7 @@
   background-color: #fff;
   padding: 1.25rem 1rem;
   box-shadow: -1px 4px 10px 0 rgb(0 0 0 / 10%);
-  transition: all 0.2s;
+  /* transition: all 0.2s; */
   font-family: "Nunito Sans", sans-serif;
   position: fixed;
   right:0;
@@ -22,6 +22,7 @@
   top:0;
   width:100%;
   margin-bottom: 120rem;
+  z-index:10000;
 }
 
 
