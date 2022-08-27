@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { Fields } from "../Components/Fields";
+import Pricing from "../Components/Pricing";
 import { Review } from "../Components/Review";
+import Accordion from "../Components/Accordion";
+import TopNav from "../Components/TopNav";
+import Footer from "../Components/Footer";
+
 
 const Container = styled.div`
   width: 100%;
@@ -31,10 +36,8 @@ const Topcont = styled.div`
 `;
 
 const Left = styled.div`
-height:800px;
   padding: 3rem;
   border-radius: 6px;
-  backdrop-filter: blur(3px);
   background-color: rgba(255, 255, 255, 0.9);
   flex: 0 0 50%;
   max-width: 50%;
@@ -70,7 +73,7 @@ height:800px;
 `;
 
 const Emildiv = styled.div`
-  // display: flex;
+  display: flex;
   white-space: nowrap;
   text-align: center;
   & button {
@@ -177,15 +180,7 @@ const Logo = styled.img`
   height: 21px;
 `;
 
-const GreenBox = styled.div`
-  background-color: #25cf60;
-  width: 100%;
-  padding-bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-`;
+
 
 const Row = styled.div`
   padding-top: 2rem;
@@ -213,6 +208,16 @@ const HeadDiv = styled.div`
     font-family: nunito sans, sans-serif;
     text-align: center;
   }
+`;
+
+const GreenBox = styled.div`
+  background-color: #25cf60;
+  width: 100%;
+  padding-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
 `;
 
 const ImgDiv = styled.div`
@@ -290,29 +295,33 @@ width:80%;
 background-color:red;
 `;
 
+const OuterHome = styled.div`
+z-index:-1;
+`
+
 export const Homepage = () => {
   return (
     <div>
+      <TopNav/>
 
-      <Container>
+<OuterHome>
+  
+<Container>
         <Topcont>
           <Left>
             <h1>Free time tracking software</h1>
             <h2>
-            Increase project profitability with time tracking <br />
+              Happy to see you again! <br /> Book TimeCamp set-up call
             </h2>
             <ul>
-              <li>✓ Unlimited users</li>
-              <li>✓ Unlimited projects</li>
-              <li>✓ 30+ integrations</li>
-              <li>✓ Automated time tracking</li>
+              <li>✓ Showing how TimeCamp works in 15 minutes</li>
+              <li>✓ Best practices from 5000+ implementations</li>
+              <li>✓ Help with dedicated setup</li>
             </ul>
             <Emildiv>
-              <input className="Inptbx" type="text" placeholder="Your e-mail address"/><br/>
-              <p>By signing up you agree to our Terms and Conditions andPrivacy Policy.</p>
-              <button>Start tracking time</button>
-              <span>or sign up with</span>
-              <button>G</button>
+              <button>Book a demo</button>
+              <span>or</span>
+              <button>Go to App</button>
               
             </Emildiv>
           </Left>
@@ -397,6 +406,11 @@ export const Homepage = () => {
       </BookDemo>
       <Fields/>
       <Review/>
+      <Pricing/>
+      <Accordion/>
+      
+</OuterHome>
+      <Footer/>
 
     </div>
   );
