@@ -53,7 +53,7 @@ const Login = () => {
         });
         localStorage.setItem("TimeCampToken", res.data.token);
         setTimeout(() => {
-          navigate("/", { replace: true });
+          navigate("/project/task", { replace: true });
         }, 5000);
       }
       else if(res === LOGIN_FAILURE){
@@ -79,10 +79,12 @@ const Login = () => {
       <Box className={styles.top_sec}>
         <Flex className={styles.top_sec_flex}>
           <Box>
+            <RouterLink to="/">
             <Image
               src="https://cdn.timecamp.com/res/css/images/greenbranding/TC-logo.1661428039.svg"
-              w="150px"
+              w="149px"
             />
+            </RouterLink>
           </Box>
         </Flex>
       </Box>
