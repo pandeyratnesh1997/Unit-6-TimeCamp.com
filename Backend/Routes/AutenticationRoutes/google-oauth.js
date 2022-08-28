@@ -16,7 +16,7 @@ passport.use(new GoogleStrategy({
             email,
             password: uuidv4()
         })
-
+        
         await user.save();
         return cb(null, user)
   }
