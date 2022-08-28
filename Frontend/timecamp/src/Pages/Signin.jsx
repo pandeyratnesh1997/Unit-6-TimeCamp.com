@@ -97,10 +97,12 @@ const Signin = () => {
       <Box className={styles.top_sec}>
         <Flex className={styles.top_sec_flex}>
           <Box>
+            <RouterLink to="/">
             <Image
               src="https://cdn.timecamp.com/res/css/images/greenbranding/TC-logo.1661428039.svg"
               w="150px"
             />
+            </RouterLink>
           </Box>
           <Box>
             <RouterLink to="/login"><Button variant={"link"}>Log in</Button></RouterLink>
