@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {Link} from "react-router-dom"
 
 const FeatureSection = styled.div`
   margin-bottom: 2rem;
@@ -228,7 +229,7 @@ export const Fields = () => {
                     </XYZ>
                   </Card>
                 </Content>
-                <GreenBtn href="#">Track employees time</GreenBtn>
+                <GreenBtn><Link to="/project/task">Track employees time</Link></GreenBtn>
               </div>
             </TextDiv>
             <ImgDiv>
@@ -292,7 +293,7 @@ export const Fields = () => {
                     </XYZ>
                   </Card>
                 </Content>
-                <GreenBtn href="#">Increase team productivity</GreenBtn>
+                <GreenBtn><Link to="/project/task">Increase team productivity</Link></GreenBtn>
               </div>
             </TextDiv>
           </Row>
@@ -341,7 +342,7 @@ export const Fields = () => {
                     </XYZ>
                   </Card>
                 </Content>
-                <GreenBtn href="#">Contact for customized solution</GreenBtn>
+                <GreenBtn ><Link to="project/task">Contact for customized solution</Link></GreenBtn>
               </div>
             </TextDiv>
             <ImgDiv>
@@ -402,7 +403,7 @@ export const Fields = () => {
                     </XYZ>
                   </Card>
                 </Content>
-                <GreenBtn href="#">Make HR's work easier</GreenBtn>
+                <GreenBtn ><Link to="project/task">Make HR's work easier</Link></GreenBtn>
               </div>
             </TextDiv>
           </Row>

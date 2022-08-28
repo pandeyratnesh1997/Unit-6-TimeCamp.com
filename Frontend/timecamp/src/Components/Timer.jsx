@@ -90,7 +90,7 @@ console.log(elapsedTime);
     }
     console.log("payload",payload)
     try {
-      let res = await axios.post("http://localhost:5000/timer",payload , {
+      let res = await axios.post("https://blooming-sea-03900.herokuapp.com/timer",payload , {
         headers: {
           authorization: `${localStorage.getItem("TimeCampToken")}`,
         },
@@ -125,7 +125,7 @@ console.log(elapsedTime);
       }
       console.log("payload",payload)
       try {
-        let res = await axios.post("http://localhost:5000/timer",payload , {
+        let res = await axios.post("https://blooming-sea-03900.herokuapp.com/timer",payload , {
           headers: {
             authorization: `${localStorage.getItem("TimeCampToken")}`,
           },
