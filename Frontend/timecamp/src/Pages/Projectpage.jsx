@@ -47,7 +47,7 @@ const Projectpage = () => {
       authorization: `${localStorage.getItem("TimeCampToken")}`,
     };
     try {
-      let res = await axios.get("http://localhost:5000/project/task", {
+      let res = await axios.get("https://blooming-sea-03900.herokuapp.com/project/task", {
         headers,
       });
       setAllProjects(res.data);
@@ -109,7 +109,7 @@ const Projectpage = () => {
         </Box>
        */}
         <Box>
-          {allProjects?.map((el) => {
+          {allProjects?.length > 0 && allProjects.map((el) => {
             return (
               <Box key={el._id}>
                 <ProjectCard {...el} />

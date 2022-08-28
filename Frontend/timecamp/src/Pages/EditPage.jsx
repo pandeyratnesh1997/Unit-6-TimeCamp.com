@@ -29,7 +29,7 @@ const handleSubmit = async(e)=>{
         'authorization': `${localStorage.getItem("TimeCampToken")}`
     }
     try {
-        let res = await axios.post("http://localhost:5000/project/task", task, { headers});
+        let res = await axios.post("https://blooming-sea-03900.herokuapp.com/project/task", task, { headers});
         console.log(res);
     } catch (error) {
         console.log(error);

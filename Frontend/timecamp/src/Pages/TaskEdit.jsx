@@ -12,7 +12,7 @@ const [task,setTask] = useState({})
     const {taskId} = useParams();
     const getTask = async()=>{
         try {
-            let res = await axios.get(`http://localhost:5000/project/task`, {
+            let res = await axios.get(`https://blooming-sea-03900.herokuapp.com/project/task`, {
                 headers :{
                     'authorization': `${localStorage.getItem("TimeCampToken")}`
                 }
@@ -42,7 +42,7 @@ const handleSubmit = async(e)=>{
         'authorization': `${localStorage.getItem("TimeCampToken")}`
     }
     try {
-        let res = await axios.patch(`http://localhost:5000/project/task/${taskId}/edit`, task, { headers});
+        let res = await axios.patch(`https://blooming-sea-03900.herokuapp.com/project/task/${taskId}/edit`, task, { headers});
         console.log(res);
     } catch (error) {
         console.log(error);
