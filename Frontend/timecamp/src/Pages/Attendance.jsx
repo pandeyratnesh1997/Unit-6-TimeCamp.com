@@ -23,13 +23,18 @@ import {
     MenuDivider,
   } from '@chakra-ui/react';
   import { Center, Square, Spacer } from '@chakra-ui/react'
-
+  import Sidebar from "../Components/Sidebar";
 
 
 
 
 const Attendance = () => {
   return (
+
+    <Flex w="100%" justifyContent={'space-between'} padding={0}>
+    <Container w="17%" padding={0} margin={0} >
+      <Sidebar />
+    </Container>
    
     <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='500' w='1000px' marginLeft={'250px'}>
     
@@ -228,7 +233,7 @@ const Attendance = () => {
 </Box>
     </Box>
 
-    
+    </Flex>
   )
 }
 
