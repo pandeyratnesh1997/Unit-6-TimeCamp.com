@@ -34,6 +34,7 @@ import { VscFileSubmodule } from "react-icons/vsc";
 import { BsTags, BsBarChartLine, BsCalendar2Check } from "react-icons/bs";
 import { BiCategory, BiCalendar, BiRocket } from "react-icons/bi";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [open, setOpen] = useState(true);
@@ -384,7 +385,7 @@ const Sidebar = () => {
           >
             <AiOutlineCheckSquare className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
-              Attendance
+              <Link to="/attendance">Attandance</Link>
             </Text>
           </Button>
         </Box>

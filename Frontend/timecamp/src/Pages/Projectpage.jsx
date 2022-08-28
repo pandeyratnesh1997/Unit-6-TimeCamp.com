@@ -18,6 +18,7 @@ import ProjectCard from "../Components/ProjectCard";
 import { useEffect } from "react";
 import EditPage from "./EditPage";
 import Sidebar from "../Components/Sidebar";
+import { Link } from "react-router-dom";
 
 const Projectpage = () => {
   // const [project,setproject] = useState("");;
@@ -81,6 +82,9 @@ const Projectpage = () => {
               Projects
             </Text>
             <Box gap="15px">
+             <Link to={'/billing'}>
+             <Button bg={'orange.300'}>Subscribe to Pro</Button>
+             </Link>
               <Button>
                 <IoPersonAddOutline />
               </Button>
@@ -111,13 +115,13 @@ const Projectpage = () => {
         <Box>
           {allProjects?.length > 0 && allProjects.map((el) => {
             return (
-              <Box key={el._id}>
+              <Box key={el._id} m={'8'} w={'350px'}>
                 <ProjectCard {...el} />
               </Box>
             );
           })}
         </Box>
-        <Box style={{ border: "1 px solid black" }} ml={"55%"}>
+        <Box style={{ border: "1 px solid black" }} ml={"50%"}>
           <EditPage />
         </Box>
       </Box>
