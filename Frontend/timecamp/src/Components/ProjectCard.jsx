@@ -1,4 +1,4 @@
-import { Box, HStack, VStack,Text, Button } from "@chakra-ui/react";
+import { Box, HStack, VStack,Text, Button, Heading } from "@chakra-ui/react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import {DeleteIcon} from '@chakra-ui/icons';
@@ -12,14 +12,14 @@ const ProjectCard = (props)=>{
       
                 <Box justifyContent={'space-between'} >
             <HStack>
-            <VStack >
-                <Text >{props.project_name}</Text>
-                <Text >{props.user_id}</Text>
+            <VStack mr={'8'} >
+                <Heading size='md' >{props.projectName}</Heading>
+                <Heading size='sm' >{props.taskName}</Heading>
             </VStack >
             <HStack >
-                <Button colorScheme={'green'}>Add task</Button>
+           
                 <Button><DeleteIcon/></Button>
-                <Button onClick={()=> navigate(`/${props._id}/edit`)}><EditIcon/></Button>
+                <Button onClick={()=> navigate(`/project/task/${props._id}/edit`)}><EditIcon/></Button>
                 </HStack>
 
             </HStack>

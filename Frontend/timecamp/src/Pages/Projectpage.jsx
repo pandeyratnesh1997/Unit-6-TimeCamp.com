@@ -98,7 +98,6 @@ const Projectpage = () => {
                     <option value='All tasks'>All tasks</option>
                     <option value='My tasks'>My tasks</option>
                 </Select>
-
             </HStack>
         </Box>
         <Box mb={'8'}>

@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 
 const TimerSchema = mongoose.Schema({
    
-    taskId : String,
+    taskId : String ,
     userId : String,
-    date  : String,
+    date   : String,
     startTime : String,
-    endTime : String,
-    elapsedTime : String
+    endTime  : String,
+    elapsedTime: {}
 });
 
 const TimerModel = mongoose.model('timer', TimerSchema);
