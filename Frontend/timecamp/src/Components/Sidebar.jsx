@@ -50,11 +50,12 @@ const Sidebar = () => {
 
   return (
     <Box
-      {...(open ? { w: "16%" } : { w: "7%" })}
+      {...(open ? { w: "100%" } : { w: "40%" })}
       height="100vh"
       boxShadow={"rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"}
       transition={".1s"}
       zIndex="1500"
+      padding={0}
     >
       <Button
         zIndex="1500"
@@ -89,7 +90,7 @@ const Sidebar = () => {
             justifyContent={"flex-start"}
             fontWeight={"400"}
           >
-            <FiClock />{" "}
+            <FiClock className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
               Timesheet
             </Text>
@@ -103,7 +104,7 @@ const Sidebar = () => {
             justifyContent={"flex-start"}
             fontWeight={"400"}
           >
-            <AiOutlineDashboard />
+            <AiOutlineDashboard className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
               Dashboard
             </Text>
@@ -113,26 +114,27 @@ const Sidebar = () => {
             bg="none"
             justifyContent={"flex-start"}
             fontWeight={"400"}
-            onMouseLeave={onOpen}
+            onMouseEnter={onOpen}
           >
-            <FaChartPie />
-            <Flex alignItems="center" justifyContent={"space-between"} w="90%">
-              <Text {...(open ? { display: "flex" } : { display: "none" })}>
-                Reports
-              </Text>
-              <Button bg="none" className={styles.drawer_btn} padding={"0"}>
-                <AiOutlineRight />
-              </Button>
-            </Flex>
+            <FaChartPie className={styles.common_btn_sb_svg}/>
+            <Text
+              {...(open ? { display: "flex" } : { display: "none" })}
+              onMouseMove={onOpen}
+              isOpen={isOpen}
+            >
+              Reports
+            </Text>
+            {open ? <AiOutlineRight /> : ""}
+
 
             <Drawer
               placement={"left"}
               isOpen={isOpen}
               size="xs"
               zIndex="-1000"
-              className={styles.drawer_div}
+              className={styles.drawer_div_open}
             >
-              <DrawerContent marginLeft="16%" onMouseLeave={onClose}>
+              <DrawerContent {...open ? {marginLeft:"16%"}: {marginLeft:"7%"}} onMouseLeave={onClose}>
                 <DrawerBody padding="0px">
                   <Box className={styles.drawer_content}>
                     <Text className={styles.common_text}>Time Reports</Text>
@@ -255,25 +257,27 @@ const Sidebar = () => {
             bg="none"
             justifyContent={"flex-start"}
             fontWeight={"400"}
-            onMouseLeave={secOnOpen}
+            onMouseEnter={secOnOpen}
           >
-            <GrPersonalComputer />
-            <Flex alignItems="center" justifyContent={"space-between"} w="90%">
-              <Text {...(open ? { display: "flex" } : { display: "none" })}>
-                Computer Time
-              </Text>
-              <Button bg="none" className={styles.drawer_btn} padding={"0"}>
-                <AiOutlineRight />
-              </Button>
-            </Flex>
+            <GrPersonalComputer className={styles.common_btn_sb_svg}/>
+
+            <Text
+              {...(open ? { display: "flex" } : { display: "none" })}
+              onMouseEnter={secOnOpen}
+            >
+              Computer Time
+            </Text>
+
+            {open ? <AiOutlineRight className={styles.arrows}/> : ""}
+
             <Drawer
               placement={"left"}
               isOpen={secIsOpen}
               size="xs"
               zIndex="-1000"
-              className={styles.drawer_div}
+              className={styles.drawer_div_open}
             >
-              <DrawerContent marginLeft="16%" onMouseLeave={secOnClose}>
+              <DrawerContent {...open ? {marginLeft:"16%"}: {marginLeft:"7%"}} onMouseLeave={secOnClose}>
                 <DrawerBody padding="0px">
                   <Box className={styles.drawer_content}>
                     <Text className={styles.common_text}>
@@ -342,7 +346,7 @@ const Sidebar = () => {
             justifyContent={"flex-start"}
             fontWeight={"400"}
           >
-            <VscFileSubmodule />{" "}
+            <VscFileSubmodule className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
               Projects
             </Text>
@@ -353,7 +357,7 @@ const Sidebar = () => {
             justifyContent={"flex-start"}
             fontWeight={"400"}
           >
-            <BsTags />{" "}
+            <BsTags className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
               Tags
             </Text>
@@ -367,7 +371,7 @@ const Sidebar = () => {
             justifyContent={"flex-start"}
             fontWeight={"400"}
           >
-            <FiUsers />{" "}
+            <FiUsers className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
               Users
             </Text>
@@ -378,7 +382,7 @@ const Sidebar = () => {
             justifyContent={"flex-start"}
             fontWeight={"400"}
           >
-            <AiOutlineCheckSquare />{" "}
+            <AiOutlineCheckSquare className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
               Attendance
             </Text>
