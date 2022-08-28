@@ -3,34 +3,46 @@ import axios from 'axios'
 import {Box, Button, Flex, Container, HStack,Text, Select, Input, VStack} from '@chakra-ui/react'
 import {CgProfile} from 'react-icons/cg'
 import {IoPersonAddOutline} from 'react-icons/io5';
-import styles from '../Styled/projectpage.module.css';
+
 import ProjectCard from '../Components/ProjectCard';
 import { useEffect } from 'react';
 import EditPage from './EditPage';
+import Sidebar from '../Components/Sidebar';
 
 const Projectpage = () => {
-    const [project,setproject] = useState("");;
+    // const [project,setproject] = useState("");;
     const [allProjects, setAllProjects] = useState([])
-    const handleAdd = async(e)=>{
-        e.preventDefault();
-        let url = "http://localhost:5000/project"
-        const payload = {
-            project_name : project,
-            user_id : 1
-        }
-        try {
-            let res = await axios.post(url,payload);
-            console.log(res)
-        } catch (error) {
-            console.log("error while createing project", error)
-        }
+    // const handleAdd = async(e)=>{
+    //     e.preventDefault();
+    //     let url = "http://localhost:5000/project"
+    //     const payload = {
+    //         project_name : project,
+    //         user_id : 1
+    //     }
+    //     const headers = {
+    //         'Content-Type': 'application/json',
+    //         'authorization': `${localStorage.getItem("TimeCampToken")}`
+    //       }
+    //     try {
+    //         let res = await axios.post(url,payload);
+    //         console.log(res)
+    //     } catch (error) {
+    //         console.log("error while createing project", error)
+    //     }
         
 
-    }
+    // }
+
+
+
     const getProject = async()=>{
+        const headers = {
+                   
+                    'authorization': `${localStorage.getItem("TimeCampToken")}`
+            }
         try {
-           let res = await axios.get("http://localhost:5000/project", {user_id : 1});
-           setAllProjects(res.data.project);
+           let res = await axios.get("http://localhost:5000/project/task", {headers});
+           setAllProjects(res.data);
            console.log(res)
         } catch (error) {
             console.log("error", error)
@@ -42,7 +54,12 @@ const Projectpage = () => {
     },[])
     
   return (
+    <Flex>
+    <Container >
+        <Sidebar/>
+    </Container>
     <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='40'>
+   
     <Container mb={'20'}>
     <HStack justifyContent={'space-between'} align='center'>
             <Text fontSize={'20'} fontWeight="700" >Projects</Text>
@@ -53,7 +70,7 @@ const Projectpage = () => {
             
         </HStack>
     </Container>
-        <Box mb='15'>
+        {/* <Box mb='15'>
             <HStack spacing={'2'} >
            
                 <Button colorScheme='green' size='md'>Add Project</Button>
@@ -71,7 +88,7 @@ const Projectpage = () => {
                 <Button variant={'outline'} size='md'>Cancel</Button>
             </HStack>
         </Box>
-        <HStack >
+       */}
             <Box>
         {allProjects?.map((el)=>{
             return(
@@ -83,13 +100,14 @@ const Projectpage = () => {
             )
         })}
         </Box>
-        <Box ml={'80%'}>
+        <Box style={{border : '1 px solid black'}}  ml={'55%'}>
             <EditPage/>
         </Box>
        
-        </HStack>
+        
         
     </Box>
+    </Flex>
   )
 }
 
