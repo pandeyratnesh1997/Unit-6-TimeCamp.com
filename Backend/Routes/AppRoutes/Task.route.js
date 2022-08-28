@@ -6,7 +6,7 @@ const TaskController = Router();
 
 TaskController.post('/task', async(req,res)=>{
     console.log(req.params)
-    let {taskName,description, estimatedFee, estimatedTime, tags,  userId} = req.body;
+    let {taskName, projectName, description, estimatedFee, estimatedTime, tags,  userId} = req.body;
     const newTask = new TaskModel({
         userId,
         projectName,

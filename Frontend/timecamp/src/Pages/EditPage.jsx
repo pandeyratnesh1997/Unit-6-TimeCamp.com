@@ -24,9 +24,12 @@ const handleChange = (e)=>{
 }
 const handleSubmit = async(e)=>{
     e.preventDefault();
-   
+    const headers = {
+        'Content-Type': 'application/json',         
+        'authorization': `${localStorage.getItem("TimeCampToken")}`
+    }
     try {
-        let res = await axios.post("http://localhost:5000/project/task", JSON.stringify(task));
+        let res = await axios.post("http://localhost:5000/project/task", task, { headers});
         console.log(res);
     } catch (error) {
         console.log(error);

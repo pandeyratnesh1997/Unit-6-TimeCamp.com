@@ -8,6 +8,26 @@ import TopNav from "../Components/TopNav";
 import Footer from "../Components/Footer";
 
 
+const Container = styled.div`
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  overflow-x: hidden;
+  font-weight: 300;
+  position: relative;
+  font-family: nunito sans, sans-serif;
+  background-color: #fff;
+  color: #1b1b20;
+  line-height: 1.5;
+  text-align: left;
+  background-image: url("https://cdn-m.timecamp.com/img/backgroundTop.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 6rem 0;
+`;
+
+
 const Topcont = styled.div`
   width: 75%;
   margin: auto;
