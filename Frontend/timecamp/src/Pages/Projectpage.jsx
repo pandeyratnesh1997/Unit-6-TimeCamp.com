@@ -54,10 +54,8 @@ const Projectpage = () => {
     },[])
     
   return (
-    <Flex>
-    <Container >
-        <Sidebar/>
-    </Container>
+    <>
+    
     <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='40'>
    
     <Container mb={'20'}>
@@ -107,7 +105,7 @@ const Projectpage = () => {
         
         
     </Box>
-    </Flex>
+    </>
   )
 }
 

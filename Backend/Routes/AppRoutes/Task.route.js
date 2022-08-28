@@ -26,16 +26,18 @@ TaskController.post('/task', async(req,res)=>{
 })
 TaskController.get('/task', async(req,res)=>{
     const {userId}  = req.body;
-    const task =  await TaskModel.find();
+    const task =  await TaskModel.find({userId : userId});
    
     return res.status(200).send(task)
 })
 
-TaskController.patch('/task/:taskid/edit',async(req,res)=>{
+TaskController.patch('/task/:taskId/edit',async(req,res)=>{
     const {taskId} = req.params;
     const {userId} = req.body;
+    console.log(req.params)
 
     const Task = await TaskModel.findOne({_id: taskId});
+    console.log(Task)
     if(Task.userId===userId){
         const newTask = await TaskModel.findByIdAndUpdate({_id : taskId}, req.body, {new : true});
         return res.status(200).send({message : "task updated successfully", newTask})
