@@ -92,6 +92,10 @@ const Signin = () => {
 
   const handleClick = () => setShow(!show);
 
+  useEffect(() => {
+    document.title = 'Timecamp || Register';
+  });
+
   return (
     <>
       <Box className={styles.top_sec}>
