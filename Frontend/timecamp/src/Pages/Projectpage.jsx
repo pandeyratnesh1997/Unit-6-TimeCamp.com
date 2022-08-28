@@ -62,18 +62,6 @@ const Projectpage = () => {
   }, []);
 
   return (
-
-    <>
-    
-    <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='40'>
-   
-    <Container mb={'20'}>
-    <HStack justifyContent={'space-between'} align='center'>
-            <Text fontSize={'20'} fontWeight="700" >Projects</Text>
-            <Box  gap='15px'>
-            <Button ><IoPersonAddOutline/></Button>
-            <Button ml={'8'}><CgProfile/></Button>
-
     <Flex w="100%" justifyContent={'space-between'} padding={0}>
       <Container w="17%" padding={0} margin={0} >
         <Sidebar />
@@ -99,7 +87,6 @@ const Projectpage = () => {
               <Button ml={"8"}>
                 <CgProfile />
               </Button>
-
             </Box>
           </HStack>
         </Container>
@@ -111,7 +98,6 @@ const Projectpage = () => {
                     <option value='All tasks'>All tasks</option>
                     <option value='My tasks'>My tasks</option>
                 </Select>
-
             </HStack>
         </Box>
         <Box mb={'8'}>
@@ -134,14 +120,9 @@ const Projectpage = () => {
         <Box style={{ border: "1 px solid black" }} ml={"55%"}>
           <EditPage />
         </Box>
-
-       
-        
-        
-    </Box>
-    </>
-  )
-}
-
+      </Box>
+    </Flex>
+  );
+};
 
 export default Projectpage;
