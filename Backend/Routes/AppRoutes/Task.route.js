@@ -6,15 +6,17 @@ const TaskController = Router();
 
 TaskController.post('/task', async(req,res)=>{
     console.log(req.params)
-    let {task_name,description, estimated_fee, estimated_time, tags, project_id, user_id} = req.body;
+    let {taskName, projectName, description, estimatedFee, estimatedTime, tags,  userId} = req.body;
     const newTask = new TaskModel({
-        task_name,
+        userId,
+        projectName,
+        taskName,
         description,
-        estimated_fee,
-        estimated_time,
-        tags,
-        project_id,
-        user_id
+        estimatedFee,
+        estimatedTime,
+        tags
+       
+        
 
     })
 
@@ -23,18 +25,21 @@ TaskController.post('/task', async(req,res)=>{
 
 })
 TaskController.get('/task', async(req,res)=>{
-    const {user_id, project_id}  = req.body;
-    const task =  await TaskModel.find({ project_id});
+    const {userId}  = req.body;
+    const task =  await TaskModel.find({userId : userId});
    
     return res.status(200).send(task)
 })
 
-TaskController.patch('/task/:taskid/edit',async(req,res)=>{
-    const {task_id, project_id, user_id} = req.body;
+TaskController.patch('/task/:taskId/edit',async(req,res)=>{
+    const {taskId} = req.params;
+    const {userId} = req.body;
+    console.log(req.params)
 
-    const Task = await TaskModel.findOne({_id: task_id});
-    if(Task.user_id===user_id){
-        const newTask = await TaskModel.findByIdAndUpdate({_id : task_id}, req.body, {new : true});
+    const Task = await TaskModel.findOne({_id: taskId});
+    console.log(Task)
+    if(Task.userId===userId){
+        const newTask = await TaskModel.findByIdAndUpdate({_id : taskId}, req.body, {new : true});
         return res.status(200).send({message : "task updated successfully", newTask})
     }
     else{
@@ -43,11 +48,11 @@ TaskController.patch('/task/:taskid/edit',async(req,res)=>{
 })
 
 TaskController.delete('/task',async(req,res)=>{
-    const {task_id, user_id} = req.body;
+    const {taskId, userId} = req.body;
 
-    const Task = await TaskModel.findOne({_id: task_id});
-    if(Task.user_id===user_id){
-     await TaskModel.findByIdAndDelete({_id : task_id});
+    const Task = await TaskModel.findOne({_id: taskId});
+    if(Task.userId===userId){
+     await TaskModel.findByIdAndDelete({_id : taskId});
         return res.status(200).send({message : "task deleted successfully"})
     }
     else{
@@ -56,5 +61,4 @@ TaskController.delete('/task',async(req,res)=>{
 
 
 })
-
 module.exports = TaskController;

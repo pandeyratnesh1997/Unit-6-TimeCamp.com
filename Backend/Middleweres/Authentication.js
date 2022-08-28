@@ -4,7 +4,7 @@
 
 
 const jwt = require('jsonwebtoken');
-
+require('dotenv').config();
 
 const authentication = (req, res, next) => {
     if(!req.headers.authorization){
@@ -13,13 +13,14 @@ const authentication = (req, res, next) => {
     const user_token = req.headers.authorization;
     // console.log('user_token:', user_token);
     
-    jwt.verify(user_token, "secret", function(err, decoded) {
+    jwt.verify(user_token, process.env.SECRET_KEY, function(err, decoded) {
         if(err){
             return res.send("Please login again")
         }
         // console.log(decoded)
         req.body.email = decoded.email
-        req.body.userId = decoded.userId
+        req.body.userId = decoded.UserId
+        console.log(decoded)
         next()
     });
 }

@@ -9,6 +9,8 @@ import { Homepage } from "../Pages/Hompage";
 import Login from "../Pages/Login";
 import Projectpage from "../Pages/Projectpage";
 import Signin from "../Pages/Signin";
+import TaskEdit from "../Pages/TaskEdit";
+import TimeSheet from "../Pages/TimeSheet";
 
 
 
@@ -16,11 +18,12 @@ const RoutePage = () => {
   return (
     <>
 
-
       <Routes>
         <Route path="/" element={<Homepage/>}/>
         <Route path="/project" element={<Projectpage/>}/>
         <Route path="/project/task" element={<Projectpage/>}/>
+        <Route path="/project/task/:taskId/edit" element={<TaskEdit/>}/>
+        <Route path="/timesheet" element={<TimeSheet/>}/>
         <Route path="/billing" element={<Billing/>}/>
         <Route path="/billing/subscription" element={<Billing/>}/>
         <Route path="/billing/custom" element={<Billing/>}/>

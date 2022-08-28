@@ -1,14 +1,7 @@
-import React from "react";
 import styled from "styled-components";
-import { Fields } from "../Components/Fields";
-import Pricing from "../Components/Pricing";
-import { Review } from "../Components/Review";
-import Accordion from "../Components/Accordion";
-import TopNav from "../Components/TopNav";
-import Footer from "../Components/Footer";
 
 
-const Container = styled.div`
+ export const Container = styled.div`
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -27,8 +20,7 @@ const Container = styled.div`
   padding: 6rem 0;
 `;
 
-
-const Topcont = styled.div`
+export const Topcont = styled.div`
   width: 75%;
   margin: auto;
   justify-content: center;
@@ -36,9 +28,11 @@ const Topcont = styled.div`
   flex-wrap: wrap;
 `;
 
-const Left = styled.div`
+export const Left = styled.div`
+height:800px;
   padding: 3rem;
   border-radius: 6px;
+  backdrop-filter: blur(3px);
   background-color: rgba(255, 255, 255, 0.9);
   flex: 0 0 50%;
   max-width: 50%;
@@ -73,8 +67,8 @@ const Left = styled.div`
   }
 `;
 
-const Emildiv = styled.div`
-  display: flex;
+export const Emildiv = styled.div`
+  // display: flex;
   white-space: nowrap;
   text-align: center;
   & button {
@@ -103,7 +97,7 @@ const Emildiv = styled.div`
     text-align: center;
   }
 `;
-const Right = styled.div`
+export const Right = styled.div`
   margin-top: 17rem;
   margin-bottom: 3rem;
   left: 10rem;
@@ -133,7 +127,7 @@ const Right = styled.div`
   }
 `;
 
-const Rht = styled.div`
+export const Rht = styled.div`
   width: 70px;
   height: 70px;
   border-radius: 100%;
@@ -155,7 +149,7 @@ const Rht = styled.div`
   }
 `;
 
-const RtHead = styled.p`
+export const RtHead = styled.p`
   font-weight: 700;
   margin-bottom: 1rem;
   font-size: 14px;
@@ -164,7 +158,7 @@ const RtHead = styled.p`
   padding: 0 2rem;
 `;
 
-const RtPara = styled.p`
+export const RtPara = styled.p`
   font-size: 14px;
   font-weight: 400;
   text-align: center;
@@ -172,7 +166,7 @@ const RtPara = styled.p`
   padding: 0 2rem;
   margin-bottom: 3rem;
 `;
-const Logo = styled.img`
+export const Logo = styled.img`
   width: 20%;
   margin-bottom: 3rem;
   vertical-align: middle;
@@ -181,9 +175,17 @@ const Logo = styled.img`
   height: 21px;
 `;
 
+export const GreenBox = styled.div`
+  background-color: #25cf60;
+  width: 100%;
+  padding-bottom: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+`;
 
-
-const Row = styled.div`
+export const Row = styled.div`
   padding-top: 2rem;
   padding-bottom: 1rem;
   display: flex;
@@ -195,7 +197,7 @@ const Row = styled.div`
   margin: auto;
 `;
 
-const HeadDiv = styled.div`
+export const HeadDiv = styled.div`
   position: relative;
   width: 100%;
   min-height: 1px;
@@ -211,17 +213,7 @@ const HeadDiv = styled.div`
   }
 `;
 
-const GreenBox = styled.div`
-  background-color: #25cf60;
-  width: 100%;
-  padding-bottom: 0;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-`;
-
-const ImgDiv = styled.div`
+export const ImgDiv = styled.div`
   text-align: center;
   margin: 1rem 0;
   align-items: center;
@@ -240,7 +232,7 @@ const ImgDiv = styled.div`
   }
 `;
 
-const BookDemo = styled.div`
+export const BookDemo = styled.div`
   margin-top: 3rem;
   margin-right: auto;
   margin-left: auto;
@@ -290,130 +282,8 @@ const BookDemo = styled.div`
   } 
 `;
 
-const Inptbx= styled.input`
+export const Inptbx= styled.input`
 height:50px;
 width:80%;
 background-color:red;
 `;
-
-
-const OuterHome = styled.div`
-z-index:-1;
-`
-
-export const Homepage = () => {
-  return (
-    <div>
-      <TopNav/>
-
-<OuterHome>
-  
-<Container>
-        <Topcont>
-          <Left>
-            <h1>Free time tracking software</h1>
-            <h2>
-              Happy to see you again! <br /> Book TimeCamp set-up call
-            </h2>
-            <ul>
-              <li>✓ Showing how TimeCamp works in 15 minutes</li>
-              <li>✓ Best practices from 5000+ implementations</li>
-              <li>✓ Help with dedicated setup</li>
-            </ul>
-            <Emildiv>
-              <button>Book a demo</button>
-              <span>or</span>
-              <button>Go to App</button>
-              
-            </Emildiv>
-          </Left>
-          <Right>
-            <Rht>
-              <img src="https://cdn-m.timecamp.com/img/person.jpg" alt="" />
-            </Rht>
-            <RtHead>
-              Adam Wagner, Co-owner and Chief Strategy Officer
-            </RtHead>
-            <RtPara>
-              „TimeCamp proved to be an essential management tool that gives us
-              clear insight into a project’s efficiency and helps to avoid an
-              overblown workload for our team.”
-            </RtPara>
-            <Logo
-              src="https://cdn-m.timecamp.com/img/raindrop_logo.svg"
-              alt=""
-            />
-          </Right>
-        </Topcont>
-      </Container>
-
-      <GreenBox>
-        <Row>
-          <HeadDiv>
-            <h3>
-              Trusted by 18,000 teams from all over the world (and still
-              growing!)
-            </h3>
-          </HeadDiv>
-          <ImgDiv>
-            <img
-              src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/usp-logo-white.png"
-              alt=""
-            />
-          </ImgDiv>
-          <ImgDiv>
-            <img
-              src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/dsv-logo-white.png"
-              alt=""
-            />
-          </ImgDiv>
-          <ImgDiv>
-            <img
-              src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/raindrop-logo-white.png"
-              alt=""
-            />
-          </ImgDiv>
-          <ImgDiv>
-            <img
-              src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/saatchi-logo-white.png"
-              alt=""
-            />
-          </ImgDiv>
-          <ImgDiv>
-            <img
-              src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/blitz-logo-white.png"
-              alt=""
-            />
-          </ImgDiv>
-          <ImgDiv>
-            <img
-              src="https://cdn-m.timecamp.com/img/greenbranding/social-proof-section/havas-logo-white.png"
-              alt=""
-            />
-          </ImgDiv>
-        </Row>
-      </GreenBox>
-
-      <BookDemo>
-        <div>
-          <p>Want to track time in your team ?</p>
-          <a href="#">Book a Demo  </a>
-        </div>
-        <div>
-          <h2>
-            Try an automatic, easy-to-use time tracker for the entire
-            organization!
-          </h2>
-        </div>
-      </BookDemo>
-      <Fields/>
-      <Review/>
-      <Pricing/>
-      <Accordion/>
-      
-</OuterHome>
-      <Footer/>
-
-    </div>
-  );
-};
