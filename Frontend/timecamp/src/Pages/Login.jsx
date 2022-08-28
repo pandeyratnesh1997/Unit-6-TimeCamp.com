@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -74,6 +74,9 @@ const Login = () => {
     setShow(!show);
   };
 
+  useEffect(() => {
+    document.title = 'Timecamp || Login';
+  });
   return (
     <>
       <Box className={styles.top_sec}>
