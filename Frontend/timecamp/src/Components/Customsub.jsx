@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./Style/Subscription.module.css"
 import { FcCheckmark } from "react-icons/fc";
+import { Radio, RadioGroup } from '@chakra-ui/react'
 import {
     Box,
     Flex,
@@ -21,18 +22,16 @@ import {
     Stack,
   } from '@chakra-ui/react';
 import CompareFeatures from './CompareFeatures';
-import Basicsub from '../Components/Basicsub';
-import Prosub from '../Components/Prosub';
-import Customsub from '../Components/Customsub';
+import Basicsub from './Basicsub';
 import { useNavigate } from 'react-router-dom';
-
-const Subcription = () => {
-  const navigate=useNavigate()
+const Customsub = () => {
+  const [value, setValue] = React.useState('1')
+  const navigate=useNavigate();
   return (
     <>
     <Box>
     <Flex style={{gap:"2px",marginLeft:"5vw"}} >
-        <Box style={{height:"200px",width:"200px",padding:"auto"}} className={styles.boxB} onClick={()=>{navigate('/subscription')}} _hover={{cursor:"pointer"}}>
+        <Box style={{height:"200px",width:"200px",padding:"auto"}} className={styles.boxA} onClick={()=>{navigate('/subscription')}} _hover={{cursor:"pointer"}}>
        <Text style={{color:"green",marginTop:"30px"}}>FREE</Text> 
        <Text style={{fontSize:"40px"}}>$0</Text>
        <Text className={styles.test1}>free for unlimited number</Text>
@@ -55,7 +54,7 @@ const Subcription = () => {
        <Text className={styles.test1}>monthly</Text>
 
         </Box>
-        <Box style={{height:"200px",width:"200px",padding:"auto"}}  className={styles.boxA}  onClick={()=>{navigate('/custom')}} _hover={{cursor:"pointer"}}>
+        <Box style={{height:"200px",width:"200px",padding:"auto"}}  className={styles.boxB} onClick={()=>{navigate('/custom')}} _hover={{cursor:"pointer"}}>
        <Text style={{color:"green",marginTop:"30px"}}>ENTERPRISE</Text> 
        <Text style={{fontSize:"40px"}}>Custom</Text>
        <Text className={styles.test1}>Contact our Sales team</Text>
@@ -74,12 +73,11 @@ const Subcription = () => {
 
         </Box>
         <Box style={{width:"35%",backgroundColor:"#f8f8f8",paddingLeft:"20px",paddingRight:"20px"}}>
-        <Text style={{textAlign:"left",fontWeight:"bolder",marginTop:"2vw",fontSize:"24px"}}>Purchase options</Text>
-        <Flex style={{justifyContent:"space-between",marginTop:"1vw",fontSize:"20px"}}> <Text>Number of licenses:</Text><Text>unlimited users</Text></Flex>
-        <Flex style={{justifyContent:"space-between",marginTop:"1vw",fontSize:"20px"}}> <Text>Price per license:</Text><Text>$0/month</Text></Flex>
-        <Flex style={{justifyContent:"space-between",marginTop:"1vw",fontSize:"20px"}}> <Text>Plan:</Text><Text>Free</Text></Flex>
-        <hr/>
-        <Flex style={{justifyContent:"space-between",marginTop:"1vw",fontSize:"20px",marginBottom:"2vw"}}> <Text>Charge:</Text><Text style={{fontWeight:"bolder"}}>$0 per month</Text></Flex>
+        <Text style={{textAlign:"center",marginTop:"4vw"}}>Talk to our Sales to tailor the plan to your business</Text>
+        <Text style={{textAlign:"center"}}>needs. The perfect solution can skyrocket your</Text>
+        <Text style={{textAlign:"center"}}>performance so don't be afraid to ask, we're here</Text>
+        <Text style={{textAlign:"center"}}>to help!</Text>
+     <Button style={{backgroundColor:"green",color:"white"}}>Book a call</Button>
         </Box>
     </Flex>
     </Box>
@@ -89,4 +87,4 @@ const Subcription = () => {
   )
 }
 
-export default Subcription
+export default Customsub

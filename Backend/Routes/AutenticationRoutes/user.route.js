@@ -22,9 +22,9 @@ GoogleController.get('/auth/google/callback',
     const email = req.user.email;
     const UserId = req.user._id;
     const token = jwt.sign({email, UserId},process.env.SECRET_KEY)
-    // localStorage.setItem("timecamp_token", token)
+    // localStorage.setItem("timecamp",token);
     res.status(200).send({"message": "User has signed in successfully!", "token":token})
-    return res.redirect('http://localhost:3000')
+     res.redirect("http://localhost:3000")
 });
 
 UserController.post("/register", async (req, res) => {
@@ -62,7 +62,7 @@ UserController.post("/login", async (req, res) => {
     const {email, password} = req.body;
 
     const user = await UserModel.findOne({email});
-    // console.log('user:', user)
+    console.log('user:', user)
 
     if(!user){
         return res.status(404).send({"message": "User not found"});

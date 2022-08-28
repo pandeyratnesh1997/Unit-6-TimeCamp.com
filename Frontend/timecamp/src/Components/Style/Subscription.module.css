@@ -1,3 +1,7 @@
+Text{
+    font-family: Poppins;
+}
+
 .test1{
     color: gray;
     font-size: 12px;
@@ -7,9 +11,13 @@ border:2px solid green;
 /* background-color: aqua; */
 }
 .boxA{
-    border:2px solid green;
+    border:1px solid gray;
     /* background-color: aqua; */
     }
+    .boxB{
+        border:2px solid green
+    }
+
     .boxAB{
         border:2px solid green;
         /* background-color: aqua; */

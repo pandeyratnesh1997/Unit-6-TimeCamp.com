@@ -23,11 +23,16 @@
 .mid_div{
     /* border: 1px solid; */
     width: 70%;
-    margin: 8% auto;
+    margin: 8rem auto;
 }
+
+
+/* left container  */
 
 .left_container{
     width: 45%;
+    float: left;
+    margin: 0px;
     /* border: 1px solid ; */
 }
 
@@ -81,12 +86,14 @@
 
 .right_container{
     width: 45%;
-    max-width:500px;
+    /* max-width:500px; */
     box-shadow: rgba(124, 124, 124, 0.35) 0px 5px 15px;
     border-radius: 23px;
     padding: 15px 20px;
     z-index: -1;
-    /* font-family: "Nunito Sans", sans-serif; */
+    font-family: "Nunito Sans", sans-serif;
+    float: right;
+    margin: 0px;
 }
 
 .right_container h1{
@@ -148,3 +155,189 @@
     color: rgb(88, 88, 88)
 }
 
+
+ /* Large screen  */
+
+@media only screen and (max-width: 1300px) and (min-width: 1001px){
+    .mid_div{
+        /* border: 1px solid; */
+        width: 90%;
+        margin: 8rem auto;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) and (min-width: 769px){
+    .mid_div{
+        width: 90%;
+        margin: 8rem auto;
+    }
+
+    .left_container{
+        width: 75%;
+        float: unset;
+        margin: 0px auto;
+        /* border: 1px solid ; */
+    }
+
+    .right_container{
+        width: 75%;
+        /* max-width:500px; */
+        padding: 15px 20px;
+        float: unset;
+        margin: 7rem auto;
+    }
+
+    .mid_div_flex{
+        display: none;
+    }
+
+    .right_div_flex{
+        width: 70%;
+        margin: auto;
+        justify-content: space-between;
+    }
+
+    .right_div_flex img{
+        width: 100px
+    }
+}
+
+ /* Medium screen  */
+
+@media only screen and (max-width: 768px) and (min-width: 481px){
+    .mid_div{
+        width: 90%;
+        margin: 8rem auto;
+    }
+
+    .left_container{
+        width: 75%;
+        float: unset;
+        margin: 0px auto;
+        /* border: 1px solid ; */
+    }
+
+    .left_container h1{
+        font-size: 33px;
+    }
+
+    .left_container h2{
+        font-size: 20px;
+        padding-right: 35%;
+    }
+
+    .right_container{
+        width: 75%;
+        /* max-width:500px; */
+        padding: 15px 20px;
+        float: unset;
+        margin: 4rem auto;
+    }
+
+    .right_container h1{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 40px;
+        margin: 20px 4px;
+    }
+
+    .mid_div_flex{
+        display: none;
+    }
+
+    .right_div_flex{
+        width: 20rem;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .right_div_flex img{
+        width: 100px;
+        margin: 20px;
+    }
+}
+
+
+ /* Small screen  */
+
+@media only screen and (max-width: 480px) and (min-width: 60px){
+    .mid_div{
+        width: 97%;
+        margin: 8rem auto;
+    }
+
+    .left_container{
+        width: 85%;
+        float: unset;
+        margin: 0px auto;
+        /* border: 1px solid ; */
+    }
+
+    .left_container h1{
+        font-size: 24px;
+    }
+
+    .left_container h2{
+        font-size: 18px;
+        padding-right: 35%;
+    }
+
+    .left_container button{
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .right_container{
+        width: 90%;
+        float: unset;
+        margin: 4rem auto;
+    }
+
+    .right_container h1{
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+        margin: 20px 4px;
+    }
+
+    .mid_div_flex{
+        display: none;
+    }
+
+    .right_div_flex{
+        width: 14rem;
+        margin: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .right_div_flex img{
+        width: 60px;
+        margin: 20px;
+    }
+
+    .google_sign{
+        width: 95%;
+    }
+
+    .google_sign p{
+        font-size: 14px;
+    }
+
+    .google_sign svg{
+        font-size: 20px;
+    }
+
+
+    .or_text{
+        margin: 10px auto;
+        font-size: 13px;
+    }
+
+    .else_sign_up{
+        font-size: 13px;
+    }
+}
