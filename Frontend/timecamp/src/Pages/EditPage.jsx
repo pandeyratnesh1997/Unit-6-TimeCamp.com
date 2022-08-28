@@ -4,13 +4,14 @@ import axios from 'axios';
 
 const EditPage = () => {
     const [task,setTask] = useState({
-        task_name : '',
+        projectName : '',
+        taskName : '',
         description : '',
-        estimated_time : '',
-        estimated_fee : "",
+        estimatedTime : '',
+        estimatedFee : "",
         tags : [],
-        user_id : '',
-        project_id : ''
+       
+       
     })
 const handleChange = (e)=>{
     const {name, value} = e.target;
@@ -23,9 +24,9 @@ const handleChange = (e)=>{
 }
 const handleSubmit = async(e)=>{
     e.preventDefault();
-    const payload = {...task, project_id : "630788ff82ba9870b93037e5", user_id : "1"}
+   
     try {
-        let res = await axios.post("http://localhost:5000/project/task", payload);
+        let res = await axios.post("http://localhost:5000/project/task", JSON.stringify(task));
         console.log(res);
     } catch (error) {
         console.log(error);
@@ -35,9 +36,13 @@ const handleSubmit = async(e)=>{
   return (
     <Box>
         <VStack>
+        <FormControl >
+                <FormLabel>Add Project</FormLabel>
+                <Input name='projectName' value={task.projectName} onChange={handleChange} placeholder='Project name...'/>
+            </FormControl>
             <FormControl >
                 <FormLabel>Add task</FormLabel>
-                <Input name='task_name' value={task.task_name} onChange={handleChange} placeholder='Task name...'/>
+                <Input name='taskName' value={task.taskName} onChange={handleChange} placeholder='Task name...'/>
             </FormControl>
             <FormControl >
                 <FormLabel>Description</FormLabel>
@@ -45,11 +50,11 @@ const handleSubmit = async(e)=>{
             </FormControl>
             <FormControl >
                 <FormLabel>Estimated hours</FormLabel>
-                <Input name='estimated_time' value={task.estimated_time} onChange={handleChange}/>
+                <Input name='estimatedTime' value={task.estimatedTime} onChange={handleChange}/>
             </FormControl>
             <FormControl >
                 <FormLabel>Estimated fee</FormLabel>
-                <Input name='estimated_fee' value={task.estimated_fee} onChange={handleChange}/>
+                <Input name='estimatedFee' value={task.estimatedFee} onChange={handleChange}/>
             </FormControl>
             <FormControl >
                 <FormLabel>Tags</FormLabel>

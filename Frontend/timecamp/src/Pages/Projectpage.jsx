@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Box, Button, Flex, Container, HStack,Text, Select, Input, VStack} from '@chakra-ui/react'
 import {CgProfile} from 'react-icons/cg'
 import {IoPersonAddOutline} from 'react-icons/io5';
-import styles from '../Styled/projectpage.module.css';
+
 import ProjectCard from '../Components/ProjectCard';
 import { useEffect } from 'react';
 import EditPage from './EditPage';
@@ -71,7 +71,7 @@ const Projectpage = () => {
                 <Button variant={'outline'} size='md'>Cancel</Button>
             </HStack>
         </Box>
-        <HStack >
+      
             <Box>
         {allProjects?.map((el)=>{
             return(
@@ -83,11 +83,11 @@ const Projectpage = () => {
             )
         })}
         </Box>
-        <Box ml={'80%'}>
+        <Box style={{border : '1 px solid black'}}  ml={'55%'}>
             <EditPage/>
         </Box>
        
-        </HStack>
+        
         
     </Box>
   )
