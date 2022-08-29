@@ -5,6 +5,14 @@ import TimerCard from "../Components/TimerCard";
 
 const TimeSheet = () => {
   const [options, setOptions] = useState([]);
+  const [selectedTask, setselectedTask] = useState("");
+
+  const handleChange = (e)=>{
+    const {checked, value} = e.target;
+    console.log(e)
+    setselectedTask(value)
+  }
+  console.log(selectedTask);
 
   const getData = async (url) => {
     try {
@@ -14,9 +22,7 @@ const TimeSheet = () => {
         },
       });
 
-      res.data.map((el) => {
-        return setOptions([...options, el]);
-      });
+      setOptions(res.data)
     } catch (error) {
       console.log("timesheet error", error);
     }
@@ -41,9 +47,13 @@ console.log(options)
       <Box mb={"8"} width={"80%"} h="100px" border={"1px solid green"}>
         <HStack>
           <Box>
-            <Select>
-              <option></option>
-            </Select>
+          <Select placeholder='Select option' onChange={(e)=>handleChange(e)}>
+          {options.map((el)=>{
+            return(
+              <option  value= {el.taskName}>{el.taskName}</option>
+            )
+          })}
+        </Select>
           </Box>
         </HStack>
       </Box>
