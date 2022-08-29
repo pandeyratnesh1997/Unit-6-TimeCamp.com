@@ -30,13 +30,13 @@ import {
 
 const Attendance = () => {
   return (
-
     <Flex w="100%" justifyContent={'space-between'} padding={0}>
     <Container w="17%" padding={0} margin={0} >
       <Sidebar />
     </Container>
-   
-    <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='500' w='1000px' marginLeft={'250px'}>
+
+    
+    <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='500' w='1000px'>
     
     <Box bg='whitesmoke' w='100%' p={'3'} color='black'>
     <Button ml={'8'}><BsHourglassTop/></Button>
@@ -68,11 +68,7 @@ const Attendance = () => {
     {/* Date */}
    
     <Menu>
-<<<<<<< HEAD
   <MenuButton as={Button} colorScheme='white' color='black' border='0.01px solid black'>
-=======
-  <MenuButton as={Button} colorScheme='white' color='black'>
->>>>>>> main
     Last Month
   </MenuButton>
   <MenuList>
@@ -231,14 +227,14 @@ const Attendance = () => {
       <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 30,Tue</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
       <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 31,Wed</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
 
-      
-      
+       
 
-</Box>
+    </Box>
     </Box>
 
     </Flex>
   )
+  
 }
 
 export default Attendance
