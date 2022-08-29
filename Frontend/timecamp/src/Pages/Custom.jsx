@@ -39,7 +39,7 @@ import Prosub from '../Components/Prosub';
 import Customsub from '../Components/Customsub';
 import { useNavigate } from 'react-router-dom';
 
-const Billing = () => {
+const Custom = () => {
   const navigate=useNavigate();
   return (
     <Box>
@@ -154,7 +154,7 @@ const Billing = () => {
 
   <TabPanels>
     <TabPanel>
-      <Subcription/>
+      <Customsub/>
     </TabPanel>
     <TabPanel>
       <Invoices/>
@@ -169,4 +169,4 @@ const Billing = () => {
   )
 }
 
-export default Billing
+export default Custom
