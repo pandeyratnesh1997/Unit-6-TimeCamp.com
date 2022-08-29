@@ -69,7 +69,7 @@ const Attendance = () => {
    
     <Menu>
   <MenuButton as={Button} colorScheme='white' color='black' border='0.01px solid black'>
-    Last Month>
+    Last Month
   </MenuButton>
   <MenuList>
     <MenuGroup title='This year'>
