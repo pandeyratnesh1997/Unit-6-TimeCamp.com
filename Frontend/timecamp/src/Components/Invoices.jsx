@@ -23,9 +23,9 @@ const Invoices = () => {
     
     <Box>
         <Image src='https://cdn.timecamp.com/res/css/images/invoices.svg' style={{margin:"auto"}}/>
-        <Text style={{fontWeight:"800"}}>You have no invoices history</Text>
-        <Text style={{fontSize:"12px"}}>After you subscribe, all your invoices will appear here</Text>
-        <Button style={{backgroundColor:"green",color:"white"}}>Subscribe now</Button>
+        <Text style={{fontWeight:"800", textAlign:"center"}}>You have no invoices history</Text>
+        <Text style={{fontSize:"12px", textAlign:"center"}}>After you subscribe, all your invoices will appear here</Text>
+        <Button style={{backgroundColor:"green",color:"white", display:"block", margin:"auto"}}>Subscribe now</Button>
     </Box>
   )
 }

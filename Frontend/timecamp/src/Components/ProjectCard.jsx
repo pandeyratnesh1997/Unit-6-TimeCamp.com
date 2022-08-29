@@ -1,5 +1,5 @@
 import { Box, HStack, VStack,Text, Button, Heading } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {DeleteIcon} from '@chakra-ui/icons';
 import {EditIcon} from '@chakra-ui/icons';
@@ -8,6 +8,9 @@ const ProjectCard = (props)=>{
     const navigate = useNavigate()
     console.log(props)
 
+    useEffect(()=>{
+        document.title = 'timecamp || projects'
+    })
     return (
       
                 <Box justifyContent={'space-between'} >

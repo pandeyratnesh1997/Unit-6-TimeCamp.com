@@ -17,14 +17,16 @@ import Sidebar from "../Components/Sidebar";
 
 
 
+
 const Users = () => {
   return (
-    
+
     <Flex w="100%" justifyContent={'space-between'} padding={0}>
     <Container w="17%" padding={0} margin={0} >
       <Sidebar />
     </Container>
-
+    
+    
     <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'60%'} height={'60px'} ml='500' w='1000px' marginLeft={'250px'}>
    
    <Box bg='whitesmoke' w='100%' p={4} color='black'>

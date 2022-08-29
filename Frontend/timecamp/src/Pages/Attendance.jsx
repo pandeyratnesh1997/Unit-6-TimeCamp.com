@@ -68,7 +68,11 @@ const Attendance = () => {
     {/* Date */}
    
     <Menu>
+<<<<<<< HEAD
   <MenuButton as={Button} colorScheme='white' color='black' border='0.01px solid black'>
+=======
+  <MenuButton as={Button} colorScheme='white' color='black'>
+>>>>>>> main
     Last Month
   </MenuButton>
   <MenuList>

@@ -13,6 +13,13 @@ import Projectpage from "../Pages/Projectpage";
 import Signin from "../Pages/Signin";
 import TaskEdit from "../Pages/TaskEdit";
 import TimeSheet from "../Pages/TimeSheet";
+import Attendance from "../Pages/Attendance";
+import Users from "../Pages/Users";
+
+
+
+
+
 
 const RoutePage = () => {
   return (
@@ -31,6 +38,8 @@ const RoutePage = () => {
         {/* </Route> */}
         <Route path="/register" element={<Signin />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/attendance" element={<Attendance/>}/>
+        <Route path="/users" element={<Users/>}/>
       </Routes>
     </>
   );
