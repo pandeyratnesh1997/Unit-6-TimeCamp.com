@@ -11,6 +11,7 @@ import {GrCircleQuestion} from 'react-icons/gr'
 import {BsHourglassTop} from 'react-icons/bs';
 import { SimpleGrid } from '@chakra-ui/react'
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
+import { Divider } from '@chakra-ui/react'
 import {
     Menu,
     MenuButton,
@@ -21,18 +22,23 @@ import {
     MenuOptionGroup,
     MenuDivider,
   } from '@chakra-ui/react';
-
-
+  import { Center, Square, Spacer } from '@chakra-ui/react'
+  import Sidebar from "../Components/Sidebar";
 
 
 
 
 const Attendance = () => {
   return (
+
+    <Flex w="100%" justifyContent={'space-between'} padding={0}>
+    <Container w="17%" padding={0} margin={0} >
+      <Sidebar />
+    </Container>
    
-    <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='500' w='1000px'>
+    <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'50%'} height={'60px'} ml='500' w='1000px' marginLeft={'250px'}>
     
-    <Box bg='whitesmoke' w='100%' p={4} color='black'>
+    <Box bg='whitesmoke' w='100%' p={'3'} color='black'>
     <Button ml={'8'}><BsHourglassTop/></Button>
     <b>10 days</b> left in your pro trial
     <Button ml={'8'} bg={'rgb(224,165,68)'} color={'white'}>Subscribe to pro</Button>
@@ -41,28 +47,32 @@ const Attendance = () => {
  
     
     
-    
-    
-    
-    <Container mb={'20'}>
-    <HStack justifyContent={'space-between'} align='right'>
-            <Text fontSize={'20'} fontWeight="700" >Attendance</Text>
-            <Box gap='15px'>
-            <Button ml={'8'}><FiSettings/></Button>
-            <Button ml={'8'}><GrCircleQuestion/></Button>
-            <Button ml={'8'}><IoPersonAddOutline/></Button>
-            <Button ml={'8'}><CgProfile/></Button>
-            </Box>
+    <Flex w='100%' justifyContent={'space-between'}>
+    <Box p='2' bg='white'>
+    Attendance
+    </Box>
+    <Spacer />
+  
+            <Button ml={'8'} bg='white'><FiSettings/></Button>
+            <Button ml={'8'} bg='white'><GrCircleQuestion/></Button>
+            <Button ml={'8'} bg='white'><IoPersonAddOutline/></Button>
+            <Button ml={'8'} bg='white'><CgProfile/></Button>
+</Flex>
+            
 
-        </HStack>
-    </Container>
+        <Divider orientation='horizontal' />
+    
     <Box bg='whitesmoke' w='100%' p={4} color='black'>
     
     
     {/* Date */}
    
     <Menu>
+<<<<<<< HEAD
+  <MenuButton as={Button} colorScheme='white' color='black' border='0.01px solid black'>
+=======
   <MenuButton as={Button} colorScheme='white' color='black'>
+>>>>>>> main
     Last Month
   </MenuButton>
   <MenuList>
@@ -79,7 +89,7 @@ const Attendance = () => {
 </Menu>
 
 {/* YOU */}
-<Button ml={'8'}><CgProfile/>You</Button>
+<Button ml={'8'} border='0.1px solid black'><CgProfile/>You</Button>
     
 
 </Box>
@@ -94,11 +104,11 @@ const Attendance = () => {
         
          //dropdown button
             <Menu>
-  <MenuButton color='black' as={Button} colorScheme='white'>
+  <MenuButton color='black' as={Button} colorScheme='white' border='.1px solid black'>
     Columns
   </MenuButton>
   <MenuList>
-    <MenuGroup title='Profile'>
+    <MenuGroup title='Profile' border='2px solid black'>
       <MenuItem>My Account</MenuItem>
       <MenuItem>Payments </MenuItem>
     </MenuGroup>
@@ -112,7 +122,7 @@ const Attendance = () => {
 
 //dropdown button
             <Menu>
-  <MenuButton color='black' as={Button} colorScheme='white'>
+  <MenuButton color='black' as={Button} colorScheme='white' border='0.1px solid black'>
     Day Type
   </MenuButton>
   <MenuList>
@@ -131,7 +141,7 @@ const Attendance = () => {
 
 //dropdown button
             <Menu>
-  <MenuButton color='black' as={Button} colorScheme='white'>
+  <MenuButton color='black' as={Button} colorScheme='white' border='0.1px solid black'>
     Bulk Edit
   </MenuButton>
   <MenuList>
@@ -183,8 +193,51 @@ const Attendance = () => {
    
       </Box>
       
-        
+     
+      <Box bg='whitesmoke' w='100%' p={30} borderRadius='7px' color='white'>
+     
+      <Box bg='white' w='100%' p={2} borderRadius='2px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='black'>Date</Text></Center><Center w='100px'><Text color='black'>Total in projects</Text></Center><Center w='100px'><Text color='black'>Total between first and last time entry</Text></Center><Center w='100px'><Text color='black'>Should Be</Text></Center><Center w='100px'><Text color='black'>Vacation hours</Text></Center><Center w='100px'><Text color='black'>First time entry</Text></Center><Center w='100px'><Text color='black'>Last time entry</Text></Center><Center w='100px'><Text color='black'>Day Type</Text></Center></Flex></Box>
+
+
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 1,Mon</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid grey'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 2,Tue</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid grey'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 3,Wed</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 4,Thu</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 5,Fri</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 6,Sat</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'></Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Non-working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 7,Sun</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'></Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Non-working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 8,Mon</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 9,Tue</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 10,Wed</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 11,Thu</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 12,Fri</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 13,Sat</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'></Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Non-working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 14,Sun</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'></Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Non-working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 15,Mon</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 16,Tue</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 17,Wed</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 18,Thu</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 19,Fri</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 20,Sat</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'></Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Non-working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 21,Sun</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'></Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Non-working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 22,Mon</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 23,Tue</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 24,Wed</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 25,Thu</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 26,Fri</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 27,Sat</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'></Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Non-working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 28,Sun</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'></Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Non-working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 29,Mon</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 30,Tue</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+      <Box bg='white' w='100%' p={5} border='1px solid black' borderRadius='1px' color='white'><Flex color='white'><Center w='100px'><Checkbox defaultChecked></Checkbox></Center><Center w='100px'><Text color='blue'>Aug 31,Wed</Text></Center><Center w='100px'></Center><Center w='100px'></Center><Center w='100px'><Text color='black'>8h 00m</Text></Center><Center w='100px'><Text color='black'>0s</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Text>Box 1</Text></Center><Center w='100px'><Button color='black' border='0.1px solid black'>Working day</Button></Center></Flex></Box>
+
+      
+      
+
+</Box>
     </Box>
+
+    </Flex>
   )
 }
 
