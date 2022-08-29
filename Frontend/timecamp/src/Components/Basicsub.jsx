@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./Style/Subscription.module.css"
 import { FcCheckmark } from "react-icons/fc";
-import { Radio, RadioGroup } from '@chakra-ui/react'
+import { Center, Radio, RadioGroup } from '@chakra-ui/react'
 import {
     Box,
     Flex,
@@ -30,34 +30,34 @@ const Basicsub = () => {
     <>
     <Box >
     <Flex style={{gap:"2px",marginLeft:"5vw"}} >
-        <Box style={{height:"200px",width:"200px",padding:"auto"}} className={styles.boxA} onClick={()=>{navigate('/subscription')}} _hover={{cursor:"pointer"}}>
-       <Text style={{color:"green",marginTop:"30px"}}>FREE</Text> 
-       <Text style={{fontSize:"40px"}}>$0</Text>
-       <Text className={styles.test1}>free for unlimited number</Text>
-       <Text className={styles.test1}>of users</Text>
+        <Box style={{height:"200px",width:"200px",padding:"auto"}} className={styles.boxA} onClick={()=>{navigate('/billing')}} _hover={{cursor:"pointer"}}>
+       <Text style={{color:"green",marginTop:"30px", textAlign:"center"}} >FREE</Text> 
+       <Text style={{fontSize:"40px", textAlign:"center"}}>$0</Text>
+       <Text className={styles.test1} textAlign="center">free for unlimited number</Text>
+       <Text className={styles.test1}  textAlign="center">of users</Text>
        {/* focusBorderColor='green.400'  */}
         </Box>
         <Box style={{height:"200px",width:"200px",padding:"auto"}}   className={styles.boxB} onClick={()=>{navigate('/basic')}} _hover={{cursor:"pointer"}}>
-       <Text style={{color:"green",marginTop:"30px"}}>Basic</Text> 
-       <Text style={{fontSize:"40px"}}>$6.3</Text>
-       <Text className={styles.test1}>per license/billed</Text>
-       <Text className={styles.test1}>annually, $7 billed</Text>
-       <Text className={styles.test1}>monthly</Text>
+       <Text style={{color:"green",marginTop:"30px", textAlign:"center"}}>Basic</Text> 
+       <Text style={{fontSize:"40px", textAlign:"center"}}>$6.3</Text>
+       <Text className={styles.test1} textAlign="center">per license/billed</Text>
+       <Text className={styles.test1} textAlign="center">annually, $7 billed</Text>
+       <Text className={styles.test1} textAlign="center">monthly</Text>
 
         </Box>
         <Box style={{height:"200px",width:"200px",padding:"auto"}}  className={styles.boxA} onClick={()=>{navigate('/pro')}} _hover={{cursor:"pointer"}}>
-       <Text style={{color:"green",marginTop:"30px"}}>Pro</Text> 
-       <Text style={{fontSize:"40px"}}>$9</Text>
-       <Text className={styles.test1}>per license/billed</Text>
-       <Text className={styles.test1}>annually, $9 billed</Text>
-       <Text className={styles.test1}>monthly</Text>
+       <Text style={{color:"green",marginTop:"30px", textAlign:"center"}}>Pro</Text> 
+       <Text style={{fontSize:"40px", textAlign:"center"}}>$9</Text>
+       <Text className={styles.test1} textAlign="center">per license/billed</Text>
+       <Text className={styles.test1} textAlign="center">annually, $9 billed</Text>
+       <Text className={styles.test1} textAlign="center">monthly</Text>
 
         </Box>
-        <Box style={{height:"200px",width:"200px",padding:"auto"}}  className={styles.boxA} onClick={()=>{navigate('/custom')}} _hover={{cursor:"pointer"}}>
-       <Text style={{color:"green",marginTop:"30px"}}>ENTERPRISE</Text> 
-       <Text style={{fontSize:"40px"}}>Custom</Text>
-       <Text className={styles.test1}>Contact our Sales team</Text>
-       <Text className={styles.test1}>for the best offer</Text>
+        <Box style={{height:"200px",width:"200px",padding:"auto"}}  className={styles.boxA}  onClick={()=>{navigate('/custom')}} _hover={{cursor:"pointer"}}>
+       <Text style={{color:"green",marginTop:"30px", textAlign:"center"}}>ENTERPRISE</Text> 
+       <Text style={{fontSize:"40px", textAlign:"center"}}>Custom</Text>
+       <Text className={styles.test1}  textAlign="center">Contact our Sales team</Text>
+       <Text className={styles.test1}  textAlign="center">for the best offer</Text>
 
         </Box>
     </Flex>
@@ -87,8 +87,9 @@ const Basicsub = () => {
         <Flex style={{justifyContent:"space-between",marginTop:"1vw",fontSize:"18px",marginBottom:"2vw"}}> <Text>Charge:</Text><Text style={{fontWeight:"bolder"}}>$7 per month</Text></Flex>
         </Box>
     </Flex>
-    </Box>
     <CompareFeatures/>
+    </Box>
+    
 
     </>
   )

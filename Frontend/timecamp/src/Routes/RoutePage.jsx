@@ -15,6 +15,9 @@ import TaskEdit from "../Pages/TaskEdit";
 import TimeSheet from "../Pages/TimeSheet";
 import Attendance from "../Pages/Attendance";
 import Users from "../Pages/Users";
+import Basic from "../Pages/Basic";
+import Pro from "../Pages/Pro"
+import Custom from "../Pages/Custom";
 
 
 
@@ -32,9 +35,9 @@ const RoutePage = () => {
         <Route path="/timesheet" element={<TimeSheet />} />
         <Route path="/billing" element={<Billing />}/>
           <Route path="/subscription" element={<Subcription />} />
-          <Route path="/custom" element={<Customsub />} />
-          <Route path="/basic" element={<Basicsub />} />
-          <Route path="/pro" element={<Prosub />} />
+          <Route path="/custom" element={<Custom />} />
+          <Route path="/basic" element={<Basic />} />
+          <Route path="/pro" element={<Pro/>} />
         {/* </Route> */}
         <Route path="/register" element={<Signin />} />
         <Route path="/login" element={<Login />} />

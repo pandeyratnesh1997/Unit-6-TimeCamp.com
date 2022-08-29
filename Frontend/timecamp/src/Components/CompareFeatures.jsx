@@ -37,7 +37,7 @@ const CompareFeatures = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
   return (
     <>
-      <Text style={{color:"blue"}} onClick={onOpen}>Compare all features</Text>
+      <Text style={{color:"blue",marginTop:"2vw",marginLeft:"30vw"}} onClick={onOpen}>Compare all features</Text>
 
       <Modal isOpen={isOpen} size={'lg'} onClose={onClose}>
         <ModalOverlay />

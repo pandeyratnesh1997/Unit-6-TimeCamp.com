@@ -33,7 +33,7 @@ const Subcription = () => {
     <>
     <Box>
     <Flex style={{gap:"2px",marginLeft:"5vw"}} >
-        <Box style={{height:"200px",width:"200px",padding:"auto"}} className={styles.boxB} onClick={()=>{navigate('/subscription')}} _hover={{cursor:"pointer"}}>
+        <Box style={{height:"200px",width:"200px",padding:"auto"}} className={styles.boxB} onClick={()=>{navigate('/billing')}} _hover={{cursor:"pointer"}}>
        <Text style={{color:"green",marginTop:"30px", textAlign:"center"}} >FREE</Text> 
        <Text style={{fontSize:"40px", textAlign:"center"}}>$0</Text>
        <Text className={styles.test1} textAlign="center">free for unlimited number</Text>
@@ -84,7 +84,7 @@ const Subcription = () => {
         </Box>
     </Flex>
     </Box>
-    <Center><CompareFeatures/></Center>
+    <CompareFeatures/>
 
     </>
   )
