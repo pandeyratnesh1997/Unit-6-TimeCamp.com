@@ -52,7 +52,7 @@ const Projectpage = () => {
         headers,
       });
       setAllProjects(res.data);
-      console.log(res);
+      console.log(allProjects);
     } catch (error) {
       console.log("error", error);
     }
@@ -118,7 +118,7 @@ const Projectpage = () => {
               <Box key={el._id} m={'8'} w={'350px'}>
                 <ProjectCard {...el} />
               </Box>
-            );
+            )
           })}
         </Box>
         <Box style={{ border: "1 px solid black" }} ml={"50%"}>
