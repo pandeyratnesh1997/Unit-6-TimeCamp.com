@@ -16,11 +16,11 @@ export const register = (payload) => (dispatch) => {
     .post("https://blooming-sea-03900.herokuapp.com/user/register", payload)
     .then((response) => {
       dispatch({ type: SIGNUP_SUCCESS, payload: response.data });
-      return SIGNUP_SUCCESS;
+      return response;
     })
     .catch((err) => {
       dispatch({ type: SIGNUP_FAILURE })
-      return SIGNUP_FAILURE;
+      return err.data;
     });
 };
 

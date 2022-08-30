@@ -348,13 +348,14 @@ const TopNav = () => {
                 </Button>
               </Box>
               <Box>
-                <Button
+                <Routerlink to="/register"><Button
                   className={styles.common_btn}
                   bg="none"
                   _hover={{ bg: "none" }}
                 >
                   Sign in
                 </Button>
+                </Routerlink>
               </Box>
               <Box>
                 <button className={styles.tracking_btn_2} >

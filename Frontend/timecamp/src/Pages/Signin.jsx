@@ -47,7 +47,35 @@ const Signin = () => {
 
     dispatch(register(payload)).then((res) => {
       console.log(res);
-      if (res === SIGNUP_SUCCESS) {
+      if(res.status===404){
+        toast({
+          position: "top",
+          title: "This Email does not really exist!",
+          description:
+            "You have entered an email which does not exists. Please enter a valid email address!",
+          status: "warning",
+          duration: 5000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+        return;
+      } 
+      if (res.status === 409) {
+        toast({
+          position: "top",
+          title: "Email has already been registered!",
+          description: "This email has already been registered, please login",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+        setTimeout(() => {
+          navigate("/login", { replace: true });
+        }, 5000);
+        return;
+      }
+      if (res.status === 200) {
         toast({
           position: "top",
           title: "Account created.",
@@ -62,21 +90,8 @@ const Signin = () => {
           navigate("/login", { replace: true });
         }, 5000);
         return;
-      } else if (res === SIGNUP_FAILURE) {
-        toast({
-          position: "top",
-          title: "Email has already been registered!",
-          description: "This email has already been registered, please login",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          zIndex: 10000,
-        });
-        setTimeout(() => {
-          navigate("/login", { replace: true });
-        }, 5000);
-        return;
-      } else {
+      } 
+      else if(res.status === 500){
         toast({
           position: "top",
           title: "OOPS!",
@@ -128,6 +143,7 @@ const Signin = () => {
         <Text className={styles.or_text}>Or</Text>
         <form onSubmit={handleRegister}>
           <Input
+            type="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             className={styles.sign_in_input}
@@ -139,7 +155,7 @@ const Signin = () => {
             size={["sm", "md", "md"]}
             w={["90%", "80%", "80%"]}
           >
-            <Input type={show ? "text" : "password"} placeholder="Password" />
+            <Input type={show ? "text" : "password"} placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
             <InputRightElement>
               <Button
                 size="sm"
