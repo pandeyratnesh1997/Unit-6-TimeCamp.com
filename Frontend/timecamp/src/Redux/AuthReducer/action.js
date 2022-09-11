@@ -13,31 +13,27 @@ import axios from "axios";
 export const register = (payload) => (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST });
   return axios
-    .post("https://blooming-sea-03900.herokuapp.com/user/register", payload)
+    .post("http://localhost:5000/user/register", payload)
     .then((response) => {
       dispatch({ type: SIGNUP_SUCCESS, payload: response.data });
       return SIGNUP_SUCCESS;
     })
     .catch((err) => {
-      dispatch({ type: SIGNUP_FAILURE })
+      dispatch({ type: SIGNUP_FAILURE });
       return SIGNUP_FAILURE;
     });
 };
 
-
-
 export const login = (payload) => (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
   return axios
-    .post("https://blooming-sea-03900.herokuapp.com/user/login", payload)
-    .then((response) =>{
-      dispatch({ type: LOGIN_SUCCESS, payload: response.data })
-      return {...response,LOGIN_SUCCESS};
-    }
-    )
-    .catch((err) => {
-      dispatch({ type: LOGIN_FAILURE })
-      return LOGIN_FAILURE;
+    .post("http://localhost:5000/user/login", payload)
+    .then((response) => {
+      dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+      return { ...response, LOGIN_SUCCESS };
     })
-    
+    .catch((err) => {
+      dispatch({ type: LOGIN_FAILURE });
+      return LOGIN_FAILURE;
+    });
 };

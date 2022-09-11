@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import DisplayTimer from "./DisplayTimer";
 import TimerButton from "./TimerButton";
 
-const Timer = ({ taskId }) => {
+const Timer = ({ taskId, taskName }) => {
   // console.log(taskId);
   const [time, setTime] = useState({ s: 0, m: 0, h: 0 });
   const [status, setStatus] = useState(0);
@@ -21,14 +21,14 @@ const Timer = ({ taskId }) => {
   // });
   const [date, setDate] = useState("");
   const [startTime, setStartTime] = useState("");
-  
+
   const start = () => {
     run();
     const { finalTime, finaldate } = findtime();
-    
+
     setDate(finaldate);
     setStartTime(finalTime);
-    
+
     setStatus(1);
 
     setInterv(setInterval(run, 1000));
@@ -73,15 +73,15 @@ const Timer = ({ taskId }) => {
     updatedS++;
     return setTime({ s: updatedS, m: updatedM, h: updatedH });
   };
-  
-  
+
   const stop = async () => {
     const { finalTime } = findtime();
     console.log("1", finalTime);
     console.log("2", time);
- 
+
     const payload = {
       taskId: taskId,
+      taskName: taskName,
       date: date,
       startTime: startTime,
       endTime: finalTime,
@@ -89,15 +89,11 @@ const Timer = ({ taskId }) => {
     };
     console.log("payload", payload);
     try {
-      let res = await axios.post(
-        "https://blooming-sea-03900.herokuapp.com/timer",
-        payload,
-        {
-          headers: {
-            authorization: `${localStorage.getItem("TimeCampToken")}`,
-          },
-        }
-      );
+      let res = await axios.post("http://localhost:5000/timer", payload, {
+        headers: {
+          authorization: `${localStorage.getItem("TimeCampToken")}`,
+        },
+      });
       // console.log(res);
     } catch (error) {
       console.log("timer post error", error);

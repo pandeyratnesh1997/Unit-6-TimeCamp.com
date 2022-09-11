@@ -1,0 +1,82 @@
+.project_card_container{
+    border: 1px solid red;
+    /* padding: 10px;
+    margin: 10px; */
+    width: 40%;
+    height: auto;
+    margin-bottom: 20px;
+}
+.card_div{
+    padding : 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    /* margin-bottom: 5px; */
+}
+
+.card_hstack{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_hstack_btn{
+    display: flex;
+    gap: 8px;
+}
+
+.project_cont_and_taskform_parent{
+   border : 1px solid greenyellow;
+   display: flex;
+   gap: 20px;
+}
+
+.top_cont{
+    display: flex;
+   justify-content: space-evenly;
+    margin-bottom: 100px;
+    width: 100%;
+}
+.top_cont_profile{
+    cursor:default;
+  }
+
+
+@media only screen and (max-width: 769px) {
+    .project_card_container{
+        border: 1px solid red;
+        /* padding: 10px;
+        margin: 10px; */
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+   
+    .card_hstack{
+        display: block;
+   }
+   .card_hstack_btn{
+        margin-top: 10px;
+   }
+  }
+  
+
+  @media screen and (max-width: 480px){
+    .top_cont_profile{
+        visibility: hidden;
+    }
+    .top_cont{
+        display: flex;
+       justify-content: space-between;
+       gap: 10px;
+        margin-bottom: 100px;
+        width: 100%;
+    }
+    .card_hstack{
+        display: block;
+        width : 100%;
+   }
+    
+    
+    .project_cont_and_taskform_parent{
+        display: block;
+        margin-top: 30px;
+    }
+  }

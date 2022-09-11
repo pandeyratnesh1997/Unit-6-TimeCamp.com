@@ -38,9 +38,9 @@ const Login = () => {
       password,
     };
 
-    dispatch(login(payload)).then(res => {
-      console.log(res)
-      if(res.LOGIN_SUCCESS  === 'LOGIN_SUCCESS'){
+    dispatch(login(payload)).then((res) => {
+      console.log(res);
+      if (res.LOGIN_SUCCESS === "LOGIN_SUCCESS") {
         toast({
           position: "top",
           title: "Hurray! we are a team now!",
@@ -51,23 +51,24 @@ const Login = () => {
           isClosable: true,
           zIndex: 10000,
         });
+        localStorage.removeItem("TimeCampToken");
         localStorage.setItem("TimeCampToken", res.data.token);
         setTimeout(() => {
           navigate("/project/task", { replace: true });
         }, 5000);
-      }
-      else if(res === LOGIN_FAILURE){
+      } else if (res === LOGIN_FAILURE) {
         toast({
           position: "top",
           title: "Oops! You have entered wrong email or password.",
-          description: "You have entered wrong credentials. Please try again with correct one.",
+          description:
+            "You have entered wrong credentials. Please try again with correct one.",
           status: "error",
           duration: 5000,
           isClosable: true,
           zIndex: 10000,
         });
       }
-    })
+    });
   };
 
   const handleClick = () => {
@@ -75,7 +76,7 @@ const Login = () => {
   };
 
   useEffect(() => {
-    document.title = 'Timecamp || Login';
+    document.title = "Timecamp || Login";
   });
   return (
     <>
@@ -83,45 +84,51 @@ const Login = () => {
         <Flex className={styles.top_sec_flex}>
           <Box>
             <RouterLink to="/">
-            <Image
-              src="https://cdn.timecamp.com/res/css/images/greenbranding/TC-logo.1661428039.svg"
-              w="149px"
-            />
+              <Image
+                src="https://cdn.timecamp.com/res/css/images/greenbranding/TC-logo.1661428039.svg"
+                w="149px"
+              />
             </RouterLink>
           </Box>
         </Flex>
       </Box>
       <Box className={styles.mid_div}>
         <Box className={styles.left_container}>
-            <Text>Product update</Text>
-            <Heading as="h1">TimeCamp Plugin for Google Chrome</Heading>
-            <Heading as="h2">
-              Track time without leaving Chrome in 70+ online apps.
-            </Heading>
-            <Button borderRadius="50px" colorScheme="whatsapp" w={["15rem","70%","65%"]}>
-              <FiChrome />
-              Add TimeCamp for Chrome
-            </Button>
-            <Flex className={styles.mid_div_flex} display={["none","none","none","flex"]}>
-              <Box>
-                <Image src="https://cdn.timecamp.com/res/css/images/crozdesk-icon.1661509648.png" />
-              </Box>
-              <Box>
-                <Image src="https://cdn.timecamp.com/res/css/images/capterra-icon.1661509648.png" />
-              </Box>
-              <Box>
-                <Image src="https://cdn.timecamp.com/res/css/images/crowd-icon.1661509648.png" />
-              </Box>
-              <Box>
-                <Image src="https://cdn.timecamp.com/res/css/images/get-app-icon.1661509648.png" />
-              </Box>
-            </Flex>
-          </Box>
-          
+          <Text>Product update</Text>
+          <Heading as="h1">TimeCamp Plugin for Google Chrome</Heading>
+          <Heading as="h2">
+            Track time without leaving Chrome in 70+ online apps.
+          </Heading>
+          <Button
+            borderRadius="50px"
+            colorScheme="whatsapp"
+            w={["15rem", "70%", "65%"]}
+          >
+            <FiChrome />
+            Add TimeCamp for Chrome
+          </Button>
+          <Flex
+            className={styles.mid_div_flex}
+            display={["none", "none", "none", "flex"]}
+          >
+            <Box>
+              <Image src="https://cdn.timecamp.com/res/css/images/crozdesk-icon.1661509648.png" />
+            </Box>
+            <Box>
+              <Image src="https://cdn.timecamp.com/res/css/images/capterra-icon.1661509648.png" />
+            </Box>
+            <Box>
+              <Image src="https://cdn.timecamp.com/res/css/images/crowd-icon.1661509648.png" />
+            </Box>
+            <Box>
+              <Image src="https://cdn.timecamp.com/res/css/images/get-app-icon.1661509648.png" />
+            </Box>
+          </Flex>
+        </Box>
 
         <Box className={styles.right_container}>
           <Heading as="h1">Log in to TimeCamp</Heading>
-          <Link href="https://blooming-sea-03900.herokuapp.com/google/auth/google">
+          <Link href="http://localhost:5000/google/auth/google">
             <Button className={styles.google_sign} display="flex" bg="none">
               <FcGoogle />
               <Text>Log in with Google</Text>
@@ -184,20 +191,23 @@ const Login = () => {
             <span style={{ color: "#02ce10" }}>Log in with SSO</span>
           </Text>
         </Box>
-        <Flex className={styles.right_div_flex} display={["flex","flex","flex","none"]}>
-              <Box>
-                <Image src="https://cdn.timecamp.com/res/css/images/crozdesk-icon.1661509648.png" />
-              </Box>
-              <Box>
-                <Image src="https://cdn.timecamp.com/res/css/images/capterra-icon.1661509648.png" />
-              </Box>
-              <Box>
-                <Image src="https://cdn.timecamp.com/res/css/images/crowd-icon.1661509648.png" />
-              </Box>
-              <Box>
-                <Image src="https://cdn.timecamp.com/res/css/images/get-app-icon.1661509648.png" />
-              </Box>
-            </Flex>
+        <Flex
+          className={styles.right_div_flex}
+          display={["flex", "flex", "flex", "none"]}
+        >
+          <Box>
+            <Image src="https://cdn.timecamp.com/res/css/images/crozdesk-icon.1661509648.png" />
+          </Box>
+          <Box>
+            <Image src="https://cdn.timecamp.com/res/css/images/capterra-icon.1661509648.png" />
+          </Box>
+          <Box>
+            <Image src="https://cdn.timecamp.com/res/css/images/crowd-icon.1661509648.png" />
+          </Box>
+          <Box>
+            <Image src="https://cdn.timecamp.com/res/css/images/get-app-icon.1661509648.png" />
+          </Box>
+        </Flex>
       </Box>
     </>
   );
