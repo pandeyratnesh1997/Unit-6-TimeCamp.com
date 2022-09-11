@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const TimerSchema = mongoose.Schema({
    
     taskId : String ,
+    taskName : String,
     userId : String,
     date   : String,
     startTime : String,
