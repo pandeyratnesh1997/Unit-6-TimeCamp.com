@@ -89,11 +89,15 @@ const Timer = ({ taskId, taskName }) => {
     };
     console.log("payload", payload);
     try {
-      let res = await axios.post("http://localhost:5000/timer", payload, {
-        headers: {
-          authorization: `${localStorage.getItem("TimeCampToken")}`,
-        },
-      });
+      let res = await axios.post(
+        "https://blooming-sea-03900.herokuapp.com/timer",
+        payload,
+        {
+          headers: {
+            authorization: `${localStorage.getItem("TimeCampToken")}`,
+          },
+        }
+      );
       // console.log(res);
     } catch (error) {
       console.log("timer post error", error);

@@ -32,16 +32,15 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
   const handleLogin = (e) => {
     e.preventDefault();
     const payload = {
       email,
       password,
     };
-    dispatch(login(payload)).then(res => {
-      console.log(res)
-      if(res.LOGIN_SUCCESS  === LOGIN_SUCCESS){
+    dispatch(login(payload)).then((res) => {
+      console.log(res);
+      if (res.LOGIN_SUCCESS === LOGIN_SUCCESS) {
         toast({
           position: "top",
           title: "Hurray! we are a team now!",
@@ -129,7 +128,7 @@ const Login = () => {
 
         <Box className={styles.right_container}>
           <Heading as="h1">Log in to TimeCamp</Heading>
-          <Link href="http://localhost:5000/google/auth/google">
+          <Link href="https://blooming-sea-03900.herokuapp.com/google/auth/google">
             <Button className={styles.google_sign} display="flex" bg="none">
               <FcGoogle />
               <Text>Log in with Google</Text>

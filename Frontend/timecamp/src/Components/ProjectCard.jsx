@@ -1,6 +1,6 @@
 import { Box, HStack, VStack, Text, Button, Heading } from "@chakra-ui/react";
 import React, { useEffect } from "react";
-import styles from '../Styled/projectpage.module.css';
+import styles from "../Styled/projectpage.module.css";
 
 import { useNavigate } from "react-router-dom";
 import { DeleteIcon } from "@chakra-ui/icons";
@@ -21,7 +21,7 @@ const ProjectCard = (props) => {
 
     try {
       let response = await axios.delete(
-        "http://localhost:5000/project/task",
+        "https://blooming-sea-03900.herokuapp.com/project/task",
         payload,
         {
           headers: {
@@ -31,7 +31,7 @@ const ProjectCard = (props) => {
       );
       //    let res = await axios({
       //     method : 'DELETE',
-      //     url: 'http://localhost:5000/project/task',
+      //     url: 'https://blooming-sea-03900.herokuapp.com/project/task',
       //     body : JSON.stringify({taskId : id}),
       //     headers : {
       //         authorization: `${localStorage.getItem("TimeCampToken")}`,
@@ -45,22 +45,20 @@ const ProjectCard = (props) => {
     document.title = "timecamp || projects";
   });
   return (
-   
-      <Box className={styles.card_hstack}>
-        <Box >
-          <Heading size="md">{props.projectName}</Heading>
-          <Text size="sm">{props.taskName}</Text>
-        </Box>
-        <Box className={styles.card_hstack_btn}>
-          <Button onClick={(e) => handleDelete(e, props._id)}>
-            <DeleteIcon />
-          </Button>
-          <Button onClick={() => navigate(`/project/task/${props._id}/edit`)}>
-            <EditIcon />
-          </Button>
-        </Box>
+    <Box className={styles.card_hstack}>
+      <Box>
+        <Heading size="md">{props.projectName}</Heading>
+        <Text size="sm">{props.taskName}</Text>
       </Box>
-    
+      <Box className={styles.card_hstack_btn}>
+        <Button onClick={(e) => handleDelete(e, props._id)}>
+          <DeleteIcon />
+        </Button>
+        <Button onClick={() => navigate(`/project/task/${props._id}/edit`)}>
+          <EditIcon />
+        </Button>
+      </Box>
+    </Box>
   );
 };
 

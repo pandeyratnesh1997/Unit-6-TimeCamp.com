@@ -1,5 +1,5 @@
 .project_card_container{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* padding: 10px;
     margin: 10px; */
     width: 40%;
@@ -23,7 +23,7 @@
 }
 
 .project_cont_and_taskform_parent{
-   border : 1px solid greenyellow;
+   /* border : 1px solid greenyellow; */
    display: flex;
    gap: 20px;
 }
@@ -41,7 +41,7 @@
 
 @media only screen and (max-width: 769px) {
     .project_card_container{
-        border: 1px solid red;
+        /* border: 1px solid red; */
         /* padding: 10px;
         margin: 10px; */
         width: 100%;

@@ -28,7 +28,7 @@ const Projectpage = () => {
   const [allProjects, setAllProjects] = useState([]);
   // const handleAdd = async(e)=>{
   //     e.preventDefault();
-  //     let url = "http://localhost:5000/project"
+  //     let url = "https://blooming-sea-03900.herokuapp.com/project"
   //     const payload = {
   //         project_name : project,
   //         user_id : 1
@@ -51,9 +51,12 @@ const Projectpage = () => {
       authorization: `${localStorage.getItem("TimeCampToken")}`,
     };
     try {
-      let res = await axios.get("http://localhost:5000/project/task", {
-        headers,
-      });
+      let res = await axios.get(
+        "https://blooming-sea-03900.herokuapp.com/project/task",
+        {
+          headers,
+        }
+      );
       setAllProjects(res.data);
       console.log(res);
     } catch (error) {
@@ -130,7 +133,7 @@ const Projectpage = () => {
 
           <EditPage />
         </Box>
-    </Box>
+      </Box>
     </Flex>
   );
 };

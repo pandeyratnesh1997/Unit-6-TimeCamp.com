@@ -18,11 +18,14 @@ const TaskEdit = () => {
   const { taskId } = useParams();
   const getTask = async () => {
     try {
-      let res = await axios.get(`http://localhost:5000/project/task`, {
-        headers: {
-          authorization: `${localStorage.getItem("TimeCampToken")}`,
-        },
-      });
+      let res = await axios.get(
+        `https://blooming-sea-03900.herokuapp.com/project/task`,
+        {
+          headers: {
+            authorization: `${localStorage.getItem("TimeCampToken")}`,
+          },
+        }
+      );
       //   console.log(res)
       const editTask = res.data.filter((item) => item._id === taskId);
       setTask(editTask[0]);
@@ -47,7 +50,7 @@ const TaskEdit = () => {
     };
     try {
       let res = await axios.patch(
-        `http://localhost:5000/project/task/${taskId}/edit`,
+        `https://blooming-sea-03900.herokuapp.com/project/task/${taskId}/edit`,
         task,
         { headers }
       );

@@ -27,7 +27,7 @@ const TimeSheet = () => {
       console.log("timesheet error", error);
     }
   };
-  let url2 = "http://localhost:5000/project/task";
+  let url2 = "https://blooming-sea-03900.herokuapp.com/project/task";
   console.log(options);
   useEffect(() => {
     getData(url2);

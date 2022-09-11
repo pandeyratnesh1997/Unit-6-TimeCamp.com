@@ -45,7 +45,7 @@ const Signin = () => {
 
     dispatch(register(payload)).then((res) => {
       console.log(res);
-      if(res.status===404){
+      if (res.status === 404) {
         toast({
           position: "top",
           title: "This Email does not really exist!",
@@ -57,7 +57,7 @@ const Signin = () => {
           zIndex: 10000,
         });
         return;
-      } 
+      }
       if (res.status === 409) {
         toast({
           position: "top",
@@ -88,8 +88,7 @@ const Signin = () => {
           navigate("/login", { replace: true });
         }, 5000);
         return;
-      } 
-      else if(res.status === 500){
+      } else if (res.status === 500) {
         toast({
           position: "top",
           title: "OOPS!",
@@ -134,7 +133,7 @@ const Signin = () => {
           Create an account and start with a free 14-day trial
         </Heading>
         <Heading as="h4">All features. No credit card required.</Heading>
-        <Link href="http://localhost:5000/google/auth/google">
+        <Link href="https://blooming-sea-03900.herokuapp.com/google/auth/google">
           <Button className={styles.google_sign} display="flex" bg="none">
             <FcGoogle />
             <Text>Sign up with Google</Text>
@@ -155,7 +154,11 @@ const Signin = () => {
             size={["sm", "md", "md"]}
             w={["90%", "80%", "80%"]}
           >
-            <Input type={show ? "text" : "password"} placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
+            <Input
+              type={show ? "text" : "password"}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <InputRightElement>
               <Button
                 size="sm"
