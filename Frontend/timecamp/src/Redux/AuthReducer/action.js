@@ -16,11 +16,11 @@ export const register = (payload) => (dispatch) => {
     .post("http://localhost:5000/user/register", payload)
     .then((response) => {
       dispatch({ type: SIGNUP_SUCCESS, payload: response.data });
-      return SIGNUP_SUCCESS;
+      return response;
     })
     .catch((err) => {
-      dispatch({ type: SIGNUP_FAILURE });
-      return SIGNUP_FAILURE;
+      dispatch({ type: SIGNUP_FAILURE })
+      return err.data;
     });
 };
 

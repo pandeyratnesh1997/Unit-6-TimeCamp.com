@@ -21,6 +21,7 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import styles from "../Styled/login.module.css";
 import { login } from "../Redux/AuthReducer/action";
 import { LOGIN_FAILURE, LOGIN_SUCCESS } from "../Redux/AuthReducer/actionTypes";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,16 +32,16 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+
   const handleLogin = (e) => {
     e.preventDefault();
     const payload = {
       email,
       password,
     };
-
-    dispatch(login(payload)).then((res) => {
-      console.log(res);
-      if (res.LOGIN_SUCCESS === "LOGIN_SUCCESS") {
+    dispatch(login(payload)).then(res => {
+      console.log(res)
+      if(res.LOGIN_SUCCESS  === LOGIN_SUCCESS){
         toast({
           position: "top",
           title: "Hurray! we are a team now!",
@@ -54,7 +55,7 @@ const Login = () => {
         localStorage.removeItem("TimeCampToken");
         localStorage.setItem("TimeCampToken", res.data.token);
         setTimeout(() => {
-          navigate("/project/task", { replace: true });
+          navigate("/project", { replace: true });
         }, 5000);
       } else if (res === LOGIN_FAILURE) {
         toast({
