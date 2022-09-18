@@ -17,6 +17,8 @@ import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import styles from '../Styled/report.module.css'
+
 
 export const Report = () => {
   const [alltask, setAllTask] = useState([]);
@@ -74,7 +76,7 @@ export const Report = () => {
   }, []);
 
   return (
-    <Box>
+    <Box className={styles.reportCont}>
       <Heading ml={"45%"} mb={8} size={"md"}>
         Report page
       </Heading>
@@ -100,11 +102,14 @@ export const Report = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      <HStack>
-        <Button onClick={handlePrev}>Prev</Button>
-        <Text>{page + 1}</Text>
-        <Button onClick={handleNext}>Next</Button>
-      </HStack>
+      <Box className={styles.btnGr}>
+        <HStack >
+          <Button onClick={handlePrev}>Prev</Button>
+          <Text>{page + 1}</Text>
+          <Button onClick={handleNext}>Next</Button>
+        </HStack>
+      </Box>
+      
     </Box>
   );
 };
