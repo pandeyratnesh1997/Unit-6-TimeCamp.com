@@ -40,6 +40,8 @@ Frontend :- npm i react-router-dom@6 axios redux react-redux redux-thunk
 
 ### Steps to run
 git clone https://github.com/pandeyratnesh1997/Unit-6-TimeCamp.com.git  //To clone this repo
-npm install
+
+npm install    //To install all dependencies
+
 npm start
 
