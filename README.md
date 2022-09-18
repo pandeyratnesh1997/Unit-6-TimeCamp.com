@@ -23,15 +23,15 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 
 ## Collaborators:-
-1)Ratnesh Pandey
+1)Ratnesh Pandey(https://github.com/pandeyratnesh1997)
 
-2)Harapriya Sahu
+2)Harapriya Sahu(https://github.com/Harapriyasahu)
 
-3)Suraj Badwaik
+3)Suraj Badwaik(https://github.com/Suraj-Badwaik)
 
-4)Mohd. Mobin
+4)Mohd. Mobin(https://github.com/mobin07)
 
-5)Abhisek Sukumar
+5)Abhisek Sukumar(https://github.com/abhishekskmr44)
  
 ## Dependencies List:-
 Backend:- npm i nodemon express mongoose jsonwebtoken bcryptjs cors dotenv
