@@ -10,15 +10,17 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 2) mongoDB
 3) Express
 4) Mongoose
-5)jwt
-6)chakra-UI
+5) jwt
+6) chakra-UI
+
 
 ## Features:-
 1) Home Page
 2) Sign-Up and Login
 3) Project page
 4) Timesheets page
-5)Reports page
+5) Reports page
+
 
 ## Collaborators:-
 1)Ratnesh Pandey
