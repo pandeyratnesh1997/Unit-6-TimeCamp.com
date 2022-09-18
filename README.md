@@ -2,7 +2,7 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 <h1>Timecamp Clone</h1>
 
-<p>Deployed Link:- </p>
+<p>Deployed Link:- https://timecampclone.netlify.app/ </p>
 
 
 ## Technologies used :-
@@ -20,15 +20,18 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 4) Timesheets page
 5)Reports page
 
-## Collaborators
+## Collaborators:-
 1)Ratnesh Pandey
+
 2)Harapriya Sahu
+
 3)Suraj Badwaik
+
 4)Mohd. Mobin
+
 5)Abhisek Sukumar
-
-##All Dependencies list: 
-
+ 
+## Dependencies List:-
 Backend:- npm i nodemon express mongoose jsonwebtoken bcryptjs cors dotenv
 
 Frontend :- npm i react-router-dom@6 axios redux react-redux redux-thunk
@@ -36,7 +39,7 @@ Frontend :- npm i react-router-dom@6 axios redux react-redux redux-thunk
 
 
 ### Steps to run
-git clone   //To clone this repo
+git clone https://github.com/pandeyratnesh1997/Unit-6-TimeCamp.com.git  //To clone this repo
 npm install
 npm start
 
