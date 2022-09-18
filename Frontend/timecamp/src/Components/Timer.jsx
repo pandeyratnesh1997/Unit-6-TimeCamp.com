@@ -1,6 +1,6 @@
-import { HStack } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 import axios from "axios";
-
+import styles from '../Styled/TimeSheet.module.css';
 import React, { useState } from "react";
 
 import DisplayTimer from "./DisplayTimer";
@@ -116,7 +116,7 @@ const Timer = ({ taskId, taskName }) => {
   };
 
   return (
-    <HStack>
+    <Box className={styles.timer_div}>
       <DisplayTimer time={time} />
       <TimerButton
         status={status}
@@ -125,7 +125,7 @@ const Timer = ({ taskId, taskName }) => {
         reset={reset}
         resume={resume}
       />
-    </HStack>
+    </Box>
   );
 };
 

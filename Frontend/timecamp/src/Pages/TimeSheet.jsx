@@ -1,7 +1,9 @@
-import { Box, HStack, Button, Input, Select } from "@chakra-ui/react";
+import { Box, HStack, Button, Input, Select ,Text,Flex, Container, Heading} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TimerCard from "../Components/TimerCard";
+import styles from '../Styled/TimeSheet.module.css';
+import Sidebar from "../Components/Sidebar";
 
 const TimeSheet = () => {
   const [options, setOptions] = useState([]);
@@ -34,11 +36,20 @@ const TimeSheet = () => {
   }, []);
 
   return (
+    <Box className={styles.main_cont}>
+        <Container w="17%" padding={0} margin={0}>
+        <Sidebar />
+      </Container>
+
     <Box
       ml={"20%"}
       boxShadow="box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;"
     >
-      <HStack mb={"10"} w={"50%"} justifyContent={"space-between"}>
+      <Box className={styles.top_cont}>
+      <Heading  size={'lg'}>TimeSheet</Heading>
+      </Box>
+      
+      {/* <HStack mb={"10"} w={"50%"} justifyContent={"space-between"}>
         <Input w={""} type={"date"} />
         <Button colorScheme={"green"} defaultChecked>
           Day
@@ -57,7 +68,7 @@ const TimeSheet = () => {
             </Select>
           </Box>
         </HStack>
-      </Box>
+      </Box> */}
       {options?.map((el) => {
         return (
           <div key={el._id}>
@@ -65,6 +76,8 @@ const TimeSheet = () => {
           </div>
         );
       })}
+    </Box>
+
     </Box>
   );
 };

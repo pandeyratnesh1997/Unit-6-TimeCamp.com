@@ -1,7 +1,67 @@
+.main_cont{
+    display: flex;
+}
+.main_cont_container{
+    padding: 0;
+    margin: 0;
+    width: 17%;
+}
+
+
+
 .card{
     outline : none;
     border : 2 px solid rgb(75,176,100);
     padding : 10px;
 
 
+}
+.top_cont{
+    height: 100px;
+    display: flex;
+    /* border : 1px solid rgb(219,219,219); */
+    margin-bottom: 30px;
+    text-align: center;
+    width: 80%;
+    justify-content: center;
+}
+
+.time_card{
+    display:  flex;
+    padding: 10px;
+    justify-content: space-between;
+    text-align: center;
+  
+    
+}
+.heading{
+   
+    position: relative;
+    top : 20%
+}
+.timer_div{
+    display: flex;
+    margin-right: 10px;
+}
+
+.timer_btn_group{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 600px){
+    .time_card{
+        display:  block;
+        padding: 10px;
+        /* justify-content: space-between; */
+        /* text-align: center; */
+        
+    }
+
+    .timer_div{
+        display: block;
+        /* margin-right: 10px; */
+        margin-top: 10px;
+    }
 }
