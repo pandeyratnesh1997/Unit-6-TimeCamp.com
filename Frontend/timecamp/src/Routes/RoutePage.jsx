@@ -18,6 +18,7 @@ import Users from "../Pages/Users";
 import Basic from "../Pages/Basic";
 import Pro from "../Pages/Pro"
 import Custom from "../Pages/Custom";
+import { Report } from "../Pages/Report";
 
 
 
@@ -38,6 +39,7 @@ const RoutePage = () => {
           <Route path="/custom" element={<Custom />} />
           <Route path="/basic" element={<Basic />} />
           <Route path="/pro" element={<Pro/>} />
+          <Route path="/report" element={<Report/>}/>
         {/* </Route> */}
         <Route path="/register" element={<Signin />} />
         <Route path="/login" element={<Login />} />

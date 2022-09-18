@@ -48,8 +48,10 @@ TaskController.patch('/task/:taskId/edit',async(req,res)=>{
 })
 
 TaskController.delete('/task',async(req,res)=>{
+    console.log(req)
     const {taskId, userId} = req.body;
-
+  
+// console.log("back",taskId)
     const Task = await TaskModel.findOne({_id: taskId});
     if(Task.userId===userId){
      await TaskModel.findByIdAndDelete({_id : taskId});

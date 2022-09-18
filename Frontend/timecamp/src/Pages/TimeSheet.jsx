@@ -5,6 +5,14 @@ import TimerCard from "../Components/TimerCard";
 
 const TimeSheet = () => {
   const [options, setOptions] = useState([]);
+  const [selectedTask, setselectedTask] = useState("");
+
+  const handleChange = (e) => {
+    const { checked, value } = e.target;
+    console.log(e);
+    setselectedTask(value);
+  };
+  console.log(selectedTask);
 
   const getData = async (url) => {
     try {
@@ -14,15 +22,13 @@ const TimeSheet = () => {
         },
       });
 
-      res.data.map((el) => {
-        return setOptions([...options, el]);
-      });
+      setOptions(res.data);
     } catch (error) {
       console.log("timesheet error", error);
     }
   };
   let url2 = "https://blooming-sea-03900.herokuapp.com/project/task";
-console.log(options)
+  console.log(options);
   useEffect(() => {
     getData(url2);
   }, []);
@@ -41,20 +47,24 @@ console.log(options)
       <Box mb={"8"} width={"80%"} h="100px" border={"1px solid green"}>
         <HStack>
           <Box>
-            <Select>
-              <option></option>
+            <Select
+              placeholder="Select option"
+              onChange={(e) => handleChange(e)}
+            >
+              {options.map((el) => {
+                return <option value={el.taskName}>{el.taskName}</option>;
+              })}
             </Select>
           </Box>
         </HStack>
       </Box>
-      {options?.map((el)=>{
-        return(
-            <div key={el._id}>
-                 <TimerCard taskId = {el._id} />
-            </div>
-        )
+      {options?.map((el) => {
+        return (
+          <div key={el._id}>
+            <TimerCard taskId={el._id} taskName={el.taskName} />
+          </div>
+        );
       })}
-     
     </Box>
   );
 };

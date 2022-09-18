@@ -10,13 +10,13 @@ import {
   InputRightElement,
   Text,
   useToast,
-  Link
+  Link,
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import styles from "../Styled/signin.module.css";
 import { useDispatch } from "react-redux";
-import { Link as RouterLink,useNavigate } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { register } from "../Redux/AuthReducer/action";
 import {
   SIGNUP_FAILURE,
@@ -24,7 +24,6 @@ import {
 } from "../Redux/AuthReducer/actionTypes";
 import axios from "axios";
 import { useEffect } from "react";
-
 
 const Signin = () => {
   const [email, setEmail] = useState("");
@@ -36,7 +35,6 @@ const Signin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
   const handleRegister = (e) => {
     e.preventDefault();
     const payload = {
@@ -47,7 +45,35 @@ const Signin = () => {
 
     dispatch(register(payload)).then((res) => {
       console.log(res);
-      if (res === SIGNUP_SUCCESS) {
+      if (res.status === 404) {
+        toast({
+          position: "top",
+          title: "This Email does not really exist!",
+          description:
+            "You have entered an email which does not exists. Please enter a valid email address!",
+          status: "warning",
+          duration: 5000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+        return;
+      }
+      if (res.status === 409) {
+        toast({
+          position: "top",
+          title: "Email has already been registered!",
+          description: "This email has already been registered, please login",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+        setTimeout(() => {
+          navigate("/login", { replace: true });
+        }, 5000);
+        return;
+      }
+      if (res.status === 200) {
         toast({
           position: "top",
           title: "Account created.",
@@ -62,21 +88,7 @@ const Signin = () => {
           navigate("/login", { replace: true });
         }, 5000);
         return;
-      } else if (res === SIGNUP_FAILURE) {
-        toast({
-          position: "top",
-          title: "Email has already been registered!",
-          description: "This email has already been registered, please login",
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-          zIndex: 10000,
-        });
-        setTimeout(() => {
-          navigate("/login", { replace: true });
-        }, 5000);
-        return;
-      } else {
+      } else if (res.status === 500) {
         toast({
           position: "top",
           title: "OOPS!",
@@ -93,7 +105,7 @@ const Signin = () => {
   const handleClick = () => setShow(!show);
 
   useEffect(() => {
-    document.title = 'Timecamp || Register';
+    document.title = "Timecamp || Register";
   });
 
   return (
@@ -102,14 +114,16 @@ const Signin = () => {
         <Flex className={styles.top_sec_flex}>
           <Box>
             <RouterLink to="/">
-            <Image
-              src="https://cdn.timecamp.com/res/css/images/greenbranding/TC-logo.1661428039.svg"
-              w="150px"
-            />
+              <Image
+                src="https://cdn.timecamp.com/res/css/images/greenbranding/TC-logo.1661428039.svg"
+                w="150px"
+              />
             </RouterLink>
           </Box>
           <Box>
-            <RouterLink to="/login"><Button variant={"link"}>Log in</Button></RouterLink>
+            <RouterLink to="/login">
+              <Button variant={"link"}>Log in</Button>
+            </RouterLink>
           </Box>
         </Flex>
       </Box>
@@ -120,14 +134,15 @@ const Signin = () => {
         </Heading>
         <Heading as="h4">All features. No credit card required.</Heading>
         <Link href="https://blooming-sea-03900.herokuapp.com/google/auth/google">
-        <Button className={styles.google_sign} display="flex" bg="none">
+          <Button className={styles.google_sign} display="flex" bg="none">
             <FcGoogle />
             <Text>Sign up with Google</Text>
-        </Button>
+          </Button>
         </Link>
         <Text className={styles.or_text}>Or</Text>
         <form onSubmit={handleRegister}>
           <Input
+            type="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
             className={styles.sign_in_input}
@@ -139,7 +154,11 @@ const Signin = () => {
             size={["sm", "md", "md"]}
             w={["90%", "80%", "80%"]}
           >
-            <Input type={show ? "text" : "password"} placeholder="Password" />
+            <Input
+              type={show ? "text" : "password"}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
             <InputRightElement>
               <Button
                 size="sm"
@@ -163,7 +182,7 @@ const Signin = () => {
             display="flex"
             colorScheme="whatsapp"
             borderRadius={"50px"}
-            height={["40px","50px","50px"]}
+            height={["40px", "50px", "50px"]}
             variant={"solid"}
             type="submit"
           >

@@ -10,7 +10,10 @@ import {
   Select,
   Input,
   VStack,
+  Heading,
 } from "@chakra-ui/react";
+import styles from "../Styled/projectpage.module.css";
+
 import { CgProfile } from "react-icons/cg";
 import { IoPersonAddOutline } from "react-icons/io5";
 
@@ -25,7 +28,7 @@ const Projectpage = () => {
   const [allProjects, setAllProjects] = useState([]);
   // const handleAdd = async(e)=>{
   //     e.preventDefault();
-  //     let url = "http://localhost:5000/project"
+  //     let url = "https://blooming-sea-03900.herokuapp.com/project"
   //     const payload = {
   //         project_name : project,
   //         user_id : 1
@@ -48,9 +51,12 @@ const Projectpage = () => {
       authorization: `${localStorage.getItem("TimeCampToken")}`,
     };
     try {
-      let res = await axios.get("https://blooming-sea-03900.herokuapp.com/project/task", {
-        headers,
-      });
+      let res = await axios.get(
+        "https://blooming-sea-03900.herokuapp.com/project/task",
+        {
+          headers,
+        }
+      );
       setAllProjects(res.data);
       console.log(res);
     } catch (error) {
@@ -63,8 +69,8 @@ const Projectpage = () => {
   }, []);
 
   return (
-    <Flex w="100%" justifyContent={'space-between'} padding={0}>
-      <Container w="17%" padding={0} margin={0} >
+    <Flex w="100%" justifyContent={"space-between"} padding={0}>
+      <Container w="17%" padding={0} margin={0}>
         <Sidebar />
       </Container>
       <Box
@@ -73,27 +79,25 @@ const Projectpage = () => {
         top={"50%"}
         height={"60px"}
         ml="40"
-        width={'70%'}
+        width={"70%"}
         margin=" 1px auto"
       >
-        <Container mb={"20"}>
-          <HStack justifyContent={"space-between"} align="center">
-            <Text fontSize={"20"} fontWeight="700">
-              Projects
-            </Text>
-            <Box gap="15px">
-             <Link to={'/billing'}>
-             <Button bg={'orange.300'}>Subscribe to Pro</Button>
-             </Link>
-              <Button>
-                <IoPersonAddOutline />
-              </Button>
-              <Button ml={"8"}>
-                <CgProfile />
-              </Button>
-            </Box>
-          </HStack>
-        </Container>
+        <Box className={styles.top_cont}>
+          <Text fontSize={"20"} fontWeight="700">
+            Projects
+          </Text>
+
+          <Link to={"/billing"}>
+            <Button bg={"orange.300"}>Subscribe to Pro</Button>
+          </Link>
+          <Button className={styles.top_cont_profile}>
+            <IoPersonAddOutline />
+          </Button>
+          <Button className={styles.top_cont_profile}>
+            <CgProfile />
+          </Button>
+        </Box>
+
         {/* <Box mb='15'>
             <HStack spacing={'2'} >
            
@@ -112,16 +116,21 @@ const Projectpage = () => {
             </HStack>
         </Box>
        */}
-        <Box>
-          {allProjects?.length > 0 && allProjects.map((el) => {
-            return (
-              <Box key={el._id} m={'8'} w={'350px'}>
-                <ProjectCard {...el} />
-              </Box>
-            );
-          })}
-        </Box>
-        <Box style={{ border: "1 px solid black" }} ml={"50%"}>
+        <Box className={styles.project_cont_and_taskform_parent}>
+          <Box className={styles.project_card_container}>
+            <Heading textAlign={"center"} size={"lg"} mb={"5"}>
+              Your Tasks
+            </Heading>
+            {allProjects?.length > 0 &&
+              allProjects.map((el) => {
+                return (
+                  <Box className={styles.card_div} key={el._id}>
+                    <ProjectCard {...el} />
+                  </Box>
+                );
+              })}
+          </Box>
+
           <EditPage />
         </Box>
       </Box>
