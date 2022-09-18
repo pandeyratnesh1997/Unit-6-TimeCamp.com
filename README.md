@@ -20,6 +20,8 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 3) Project page
 4) Timesheets page
 5) Reports page
+6)Attendance page
+
 
 
 ## Collaborators:-
