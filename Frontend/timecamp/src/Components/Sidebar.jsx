@@ -123,19 +123,19 @@ const Sidebar = () => {
               onMouseMove={onOpen}
               isOpen={isOpen}
             >
-              Reports
+              <Link to = "Re">Reports</Link>
             </Text>
             {open ? <AiOutlineRight /> : ""}
 
 
-            <Drawer
+            {/* <Drawer
               placement={"left"}
               isOpen={isOpen}
               size="xs"
               zIndex="-1000"
               className={styles.drawer_div_open}
-            >
-              <DrawerContent {...open ? {marginLeft:"16%"}: {marginLeft:"7%"}} onMouseLeave={onClose}>
+            > */}
+              {/* <DrawerContent {...open ? {marginLeft:"16%"}: {marginLeft:"7%"}} onMouseLeave={onClose}>
                 <DrawerBody padding="0px">
                   <Box className={styles.drawer_content}>
                     <Text className={styles.common_text}>Time Reports</Text>
@@ -251,7 +251,7 @@ const Sidebar = () => {
                   </Box>
                 </DrawerBody>
               </DrawerContent>
-            </Drawer>
+            </Drawer> */}
           </Button>
           <Button
             className={styles.common_btn_sb}
@@ -271,7 +271,7 @@ const Sidebar = () => {
 
             {open ? <AiOutlineRight className={styles.arrows}/> : ""}
 
-            <Drawer
+            {/* <Drawer
               placement={"left"}
               isOpen={secIsOpen}
               size="xs"
@@ -336,7 +336,7 @@ const Sidebar = () => {
                   </Box>
                 </DrawerBody>
               </DrawerContent>
-            </Drawer>
+            </Drawer> */}
           </Button>
         </Box>
         <Box className={styles.common_div}>
