@@ -1,5 +1,6 @@
-import { Button, HStack } from '@chakra-ui/react'
-import React from 'react'
+import { Button, HStack,Box } from '@chakra-ui/react'
+import React from 'react';
+import styles from '../Styled/TimeSheet.module.css'
 
 const TimerButton = (props) => {
 
@@ -14,21 +15,21 @@ const TimerButton = (props) => {
         
             {
             (props.status === 1)? 
-            <HStack>
+            <Box className={styles.timer_btn_group}>
                 <Button onClick={props.stop}>Stop</Button> 
                 <Button onClick={props.reset}>Reset</Button> 
                 
-            </HStack> 
+            </Box> 
                 : ''
             
             }
         {
             (props.status === 2)? 
-            <HStack>
+            <Box className={styles.timer_btn_group} >
                 <Button onClick={props.resume}>Resume</Button> 
                 <Button onClick={props.reset}>Reset</Button> 
                 
-            </HStack> 
+            </Box> 
                 : ''
             
             }

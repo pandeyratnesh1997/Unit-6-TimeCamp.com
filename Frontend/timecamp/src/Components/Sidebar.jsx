@@ -93,7 +93,7 @@ const Sidebar = () => {
           >
             <FiClock className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
-              Timesheet
+            <Link to="/timesheet">Timesheet</Link>
             </Text>
           </Button>
         </Box>
@@ -123,7 +123,7 @@ const Sidebar = () => {
               onMouseMove={onOpen}
               isOpen={isOpen}
             >
-              <Link to = "Re">Reports</Link>
+             <Link to="/report">Report</Link>
             </Text>
             {open ? <AiOutlineRight /> : ""}
 
@@ -349,7 +349,7 @@ const Sidebar = () => {
           >
             <VscFileSubmodule className={styles.common_btn_sb_svg}/>
             <Text {...(open ? { display: "flex" } : { display: "none" })}>
-              Projects
+            <Link to="/project">Project</Link>
             </Text>
           </Button>
           <Button
