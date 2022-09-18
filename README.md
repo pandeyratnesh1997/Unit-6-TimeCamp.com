@@ -36,7 +36,8 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 5)Abhisek Sukumar(https://github.com/abhishekskmr44)
  
 ## Dependencies List:-
-Backend:- npm i nodemon express mongoose jsonwebtoken bcryptjs cors dotenv
+Backend:- npm i express nodemon cors bcrypt mongoose dotenv node-localstorage bcryptjs email-validator jsonwebtoken passport passport-google-oauth2 passport-google-oauth20 uuid
+
 
 Frontend :- npm i react-router-dom@6 axios redux react-redux redux-thunk
             npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
