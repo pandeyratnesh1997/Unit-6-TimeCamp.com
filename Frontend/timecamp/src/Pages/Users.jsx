@@ -9,9 +9,10 @@ import {GrAdd} from 'react-icons/gr'
 import { FiSettings } from 'react-icons/fi'
 import {GrCircleQuestion} from 'react-icons/gr';
 import {BsHourglassTop} from 'react-icons/bs';
-import { SimpleGrid,  } from '@chakra-ui/react'
+import { SimpleGrid  } from '@chakra-ui/react'
 import { useMediaQuery,Spacer } from '@chakra-ui/react';
 import Sidebar from "../Components/Sidebar";
+import styles from "../Styled/users.module.css";
 
 
 
@@ -27,7 +28,7 @@ const Users = () => {
     </Container>
     
     
-    <Box boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'60%'} height={'60px'} ml='500' w='1000px' marginLeft={'250px'}>
+    <Box className={styles.user_div} boxSize={'border-box'} border='1px solid rgb(219,219,219)' top={'60%'} height={'60px'} ml='500' w='1000px' marginLeft={'250px'}>
    
    <Box bg='whitesmoke' w='100%' p={4} color='black'>
     <Button ml={'8'}><BsHourglassTop/></Button>
