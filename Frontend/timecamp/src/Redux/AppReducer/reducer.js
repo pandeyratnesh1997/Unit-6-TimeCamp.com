@@ -1,1 +1,0 @@
-// write reducer logic for app redux
