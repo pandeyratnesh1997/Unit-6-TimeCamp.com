@@ -18,11 +18,7 @@ import styles from "../Styled/signin.module.css";
 import { useDispatch } from "react-redux";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { register } from "../Redux/AuthReducer/action";
-import {
-  SIGNUP_FAILURE,
-  SIGNUP_SUCCESS,
-} from "../Redux/AuthReducer/actionTypes";
-import axios from "axios";
+
 import { useEffect } from "react";
 
 const Signin = () => {
@@ -52,7 +48,7 @@ const Signin = () => {
           description:
             "You have entered an email which does not exists. Please enter a valid email address!",
           status: "warning",
-          duration: 5000,
+          duration: 3000,
           isClosable: true,
           zIndex: 10000,
         });
@@ -64,13 +60,13 @@ const Signin = () => {
           title: "Email has already been registered!",
           description: "This email has already been registered, please login",
           status: "error",
-          duration: 5000,
+          duration: 3000,
           isClosable: true,
           zIndex: 10000,
         });
-        setTimeout(() => {
-          navigate("/login", { replace: true });
-        }, 5000);
+
+        navigate("/login", { replace: true });
+
         return;
       }
       if (res.status === 200) {
@@ -80,13 +76,13 @@ const Signin = () => {
           description:
             "You have registered successfully for the Timecamp. You are now being redirected to login",
           status: "success",
-          duration: 5000,
+          duration: 3000,
           isClosable: true,
           zIndex: 10000,
         });
-        setTimeout(() => {
-          navigate("/login", { replace: true });
-        }, 5000);
+
+        navigate("/login", { replace: true });
+
         return;
       } else if (res.status === 500) {
         toast({
@@ -95,7 +91,7 @@ const Signin = () => {
           description:
             " Something went wrong while registering. Please try again!",
           status: "error",
-          duration: 5000,
+          duration: 3000,
           isClosable: true,
         });
       }
@@ -133,12 +129,12 @@ const Signin = () => {
           Create an account and start with a free 14-day trial
         </Heading>
         <Heading as="h4">All features. No credit card required.</Heading>
-        <Link href="https://blooming-sea-03900.herokuapp.com/google/auth/google">
+        {/* <Link href="https://blooming-sea-03900.herokuapp.com/google/auth/google">
           <Button className={styles.google_sign} display="flex" bg="none">
             <FcGoogle />
             <Text>Sign up with Google</Text>
           </Button>
-        </Link>
+        </Link> */}
         <Text className={styles.or_text}>Or</Text>
         <form onSubmit={handleRegister}>
           <Input

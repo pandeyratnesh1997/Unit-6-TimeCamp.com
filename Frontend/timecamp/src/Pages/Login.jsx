@@ -39,7 +39,7 @@ const Login = () => {
       password,
     };
     dispatch(login(payload)).then((res) => {
-      console.log(res);
+      // console.log(res);
       if (res.LOGIN_SUCCESS === LOGIN_SUCCESS) {
         toast({
           position: "top",
@@ -47,15 +47,14 @@ const Login = () => {
           description:
             "You have successfully logged in for the Timecamp. You are now being redirected to Home. Please wait!",
           status: "success",
-          duration: 5000,
+          duration: 3000,
           isClosable: true,
           zIndex: 10000,
         });
         localStorage.removeItem("TimeCampToken");
         localStorage.setItem("TimeCampToken", res.data.token);
-        setTimeout(() => {
-          navigate("/project", { replace: true });
-        }, 5000);
+
+        navigate("/project", { replace: true });
       } else if (res === LOGIN_FAILURE) {
         toast({
           position: "top",
@@ -63,7 +62,7 @@ const Login = () => {
           description:
             "You have entered wrong credentials. Please try again with correct one.",
           status: "error",
-          duration: 5000,
+          duration: 3000,
           isClosable: true,
           zIndex: 10000,
         });
@@ -128,12 +127,12 @@ const Login = () => {
 
         <Box className={styles.right_container}>
           <Heading as="h1">Log in to TimeCamp</Heading>
-          <Link href="https://blooming-sea-03900.herokuapp.com/google/auth/google">
+          {/* <Link href="https://blooming-sea-03900.herokuapp.com/google/auth/google">
             <Button className={styles.google_sign} display="flex" bg="none">
               <FcGoogle />
               <Text>Log in with Google</Text>
             </Button>
-          </Link>
+          </Link> */}
           <Text className={styles.or_text}>Or</Text>
           <form onSubmit={handleLogin}>
             <Input

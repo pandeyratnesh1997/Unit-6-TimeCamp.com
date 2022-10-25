@@ -8,9 +8,13 @@ import {
   Textarea,
   Button,
   Heading,
+  useToast
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { getProject, postProject } from "../Redux/AppReducer/action";
+import { POST_PROJECT_FALIURE, POST_PROJECT_SUCCESS } from "../Redux/AppReducer/actionTypes";
+
 
 const EditPage = () => {
   const [task, setTask] = useState({
@@ -20,7 +24,10 @@ const EditPage = () => {
     estimatedTime: "",
     estimatedFee: "",
     tags: [],
-  });
+  })
+  const dispatch = useDispatch();
+  const toast = useToast();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name != "tags") {
@@ -31,22 +38,34 @@ const EditPage = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const headers = {
-      "Content-Type": "application/json",
-      authorization: `${localStorage.getItem("TimeCampToken")}`,
-    };
-    try {
-      let res = await axios.post(
-        "https://blooming-sea-03900.herokuapp.com/project/task",
-        task,
-        {
-          headers,
-        }
-      );
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(postProject(task)).then((response) =>{
+      if(response.type === POST_PROJECT_SUCCESS){
+        toast({
+          position: "top",
+          title: "Project created successfully",
+          description:
+            "You can see it on page",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+
+        // dispatch(getProject())
+      }
+      else if( response.type === POST_PROJECT_FALIURE){
+        toast({
+          position: "top",
+          title: "Error in project creation",
+          description:
+            "Error 500 Server error",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+      }
+    })
   };
 
   return (
