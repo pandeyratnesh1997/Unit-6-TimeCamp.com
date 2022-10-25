@@ -7,13 +7,23 @@ import {
   FormLabel,
   Textarea,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { updateProject } from "../Redux/AppReducer/action";
+import {
+  UPDATE_PROJECT_FALIURE,
+  UPDATE_PROJECT_SUCCESS,
+} from "../Redux/AppReducer/actionTypes";
 
 const TaskEdit = () => {
   const [task, setTask] = useState({});
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const navigate = useNavigate();
 
   const { taskId } = useParams();
   const getTask = async () => {
@@ -44,20 +54,35 @@ const TaskEdit = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const headers = {
-      "Content-Type": "application/json",
-      authorization: `${localStorage.getItem("TimeCampToken")}`,
+    const payload = {
+      taskId,
+      task,
     };
-    try {
-      let res = await axios.patch(
-        `https://blooming-sea-03900.herokuapp.com/project/task/${taskId}/edit`,
-        task,
-        { headers }
-      );
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
+    dispatch(updateProject(payload)).then((response) => {
+      if (response.type === UPDATE_PROJECT_SUCCESS) {
+        toast({
+          position: "top",
+          title: "Project updated successfully",
+          description: "You can see it on page",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+        navigate("/project");
+        return;
+      } else if (response.type === UPDATE_PROJECT_FALIURE) {
+        toast({
+          position: "top",
+          title: "Error in project updation",
+          description: "Error 500 Server error",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+      }
+    });
   };
   useEffect(() => {
     getTask();

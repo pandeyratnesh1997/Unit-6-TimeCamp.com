@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import axios from "axios";
 import {
   Box,
@@ -11,63 +13,45 @@ import {
   Input,
   VStack,
   Heading,
+  useToast
 } from "@chakra-ui/react";
+
 import styles from "../Styled/projectpage.module.css";
 
 import { CgProfile } from "react-icons/cg";
 import { IoPersonAddOutline } from "react-icons/io5";
+import { Spinner } from '@chakra-ui/react'
 
 import ProjectCard from "../Components/ProjectCard";
-import { useEffect } from "react";
+
 import EditPage from "./EditPage";
 import Sidebar from "../Components/Sidebar";
 import { Link } from "react-router-dom";
+import { getProject } from "../Redux/AppReducer/action";
 
 const Projectpage = () => {
-  // const [project,setproject] = useState("");;
-  const [allProjects, setAllProjects] = useState([]);
-  // const handleAdd = async(e)=>{
-  //     e.preventDefault();
-  //     let url = "https://blooming-sea-03900.herokuapp.com/project"
-  //     const payload = {
-  //         project_name : project,
-  //         user_id : 1
-  //     }
-  //     const headers = {
-  //         'Content-Type': 'application/json',
-  //         'authorization': `${localStorage.getItem("TimeCampToken")}`
-  //       }
-  //     try {
-  //         let res = await axios.post(url,payload);
-  //         console.log(res)
-  //     } catch (error) {
-  //         console.log("error while createing project", error)
-  //     }
-
-  // }
-
-  const getProject = async () => {
-    const headers = {
-      authorization: `${localStorage.getItem("TimeCampToken")}`,
-    };
-    try {
-      let res = await axios.get(
-        "https://blooming-sea-03900.herokuapp.com/project/task",
-        {
-          headers,
-        }
-      );
-      setAllProjects(res.data);
-      console.log(res);
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-
+  const {isLoading, isError, allProject} = useSelector((state)=> state.appReducer);
+  const toast = useToast();
+  const dispatch = useDispatch();
+  
   useEffect(() => {
-    getProject();
+    dispatch(getProject())
   }, []);
-
+  if(isLoading){
+    return <Spinner ml={'50%'} mt={'20%'} size={'xl'} color='blue.500'/>
+  }
+  if(isError){
+    toast({
+      position: "top",
+      title: "Error in Data fetching",
+      description:
+        "Error from server",
+      status: "error",
+      duration: 3000,
+      isClosable: true,
+      zIndex: 10000,
+    });
+  }
   return (
     <Flex w="100%" justifyContent={"space-between"} padding={0}>
       <Container w="17%" padding={0} margin={0}>
@@ -98,31 +82,14 @@ const Projectpage = () => {
           </Button>
         </Box>
 
-        {/* <Box mb='15'>
-            <HStack spacing={'2'} >
-           
-                <Button colorScheme='green' size='md'>Add Project</Button>
-                <Select variant='outline' size='md' width='110px' placeholder='Filter'>
-                    <option value='All tasks'>All tasks</option>
-                    <option value='My tasks'>My tasks</option>
-                </Select>
-            </HStack>
-        </Box>
-        <Box mb={'8'}>
-            <HStack gap={'2'}>
-                <Input w='60' placeholder='Enter project name' value={project} onChange={(e)=>setproject(e.target.value)}></Input>
-                <Button size={'md'} colorScheme='green' onClick={(e)=>handleAdd(e)}>Add</Button>
-                <Button variant={'outline'} size='md'>Cancel</Button>
-            </HStack>
-        </Box>
-       */}
+      
         <Box className={styles.project_cont_and_taskform_parent}>
           <Box className={styles.project_card_container}>
             <Heading textAlign={"center"} size={"lg"} mb={"5"}>
               Your Tasks
             </Heading>
-            {allProjects?.length > 0 &&
-              allProjects.map((el) => {
+            {allProject?.length > 0 &&
+              allProject.map((el) => {
                 return (
                   <Box className={styles.card_div} key={el._id}>
                     <ProjectCard {...el} />

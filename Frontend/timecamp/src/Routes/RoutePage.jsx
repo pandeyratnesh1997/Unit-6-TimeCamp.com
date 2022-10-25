@@ -19,6 +19,7 @@ import Basic from "../Pages/Basic";
 import Pro from "../Pages/Pro"
 import Custom from "../Pages/Custom";
 import { Report } from "../Pages/Report";
+import PageNotFound from "../Pages/PageNotFound";
 
 
 
@@ -45,6 +46,7 @@ const RoutePage = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/attendance" element={<Attendance/>}/>
         <Route path="/users" element={<Users/>}/>
+        <Route path="*" element ={<PageNotFound/>}/>
       </Routes>
     </>
   );

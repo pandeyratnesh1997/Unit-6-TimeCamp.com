@@ -1,26 +1,25 @@
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, useToast } from "@chakra-ui/react";
 import axios from "axios";
-import styles from '../Styled/TimeSheet.module.css';
+import styles from "../Styled/TimeSheet.module.css";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 import DisplayTimer from "./DisplayTimer";
 import TimerButton from "./TimerButton";
+import { saveTime } from "../Redux/AppReducer/action";
+import { POST_TIME_FALIURE, POST_TIME_SUCCESS } from "../Redux/AppReducer/actionTypes";
 
 const Timer = ({ taskId, taskName }) => {
-  // console.log(taskId);
+ 
   const [time, setTime] = useState({ s: 0, m: 0, h: 0 });
   const [status, setStatus] = useState(0);
   const [interv, setInterv] = useState();
-  // const [timer, setTimer] = useState({
-  //   taskId: taskId,
-
-  //   date: "",
-  //   startTime: "",
-  //   endTime: "",
-  //   elapsedTime: "",
-  // });
+  
   const [date, setDate] = useState("");
   const [startTime, setStartTime] = useState("");
+  const toast = useToast()
+
+  const dispatch = useDispatch()
 
   const start = () => {
     run();
@@ -76,8 +75,8 @@ const Timer = ({ taskId, taskName }) => {
 
   const stop = async () => {
     const { finalTime } = findtime();
-    console.log("1", finalTime);
-    console.log("2", time);
+    // console.log("1", finalTime);
+    // console.log("2", time);
 
     const payload = {
       taskId: taskId,
@@ -87,21 +86,33 @@ const Timer = ({ taskId, taskName }) => {
       endTime: finalTime,
       elapsedTime: time,
     };
-    console.log("payload", payload);
-    try {
-      let res = await axios.post(
-        "https://blooming-sea-03900.herokuapp.com/timer",
-        payload,
-        {
-          headers: {
-            authorization: `${localStorage.getItem("TimeCampToken")}`,
-          },
-        }
-      );
-      // console.log(res);
-    } catch (error) {
-      console.log("timer post error", error);
-    }
+    // console.log("payload", payload);
+    dispatch(saveTime(payload)).then((response) =>{
+      if(response.POST_TIME_SUCCESS === POST_TIME_SUCCESS){
+        toast({
+          position: "top",
+          title: "task worktime saved successfully",
+          description:
+            "You can see this entry on Report page",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+      }
+      else if(response.POST_TIME_FALIURE === POST_TIME_FALIURE){
+        toast({
+          position: "top",
+          title: "task worktime have not saved ",
+          description:
+            " 500 Internal Server Error ",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+          zIndex: 10000,
+        });
+      }
+    })
 
     clearInterval(interv);
     setStatus(2);

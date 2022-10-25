@@ -6,7 +6,6 @@ import {
   Tr,
   Th,
   Td,
-  TableCaption,
   TableContainer,
   Box,
   Text,
@@ -17,15 +16,14 @@ import React from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import styles from '../Styled/report.module.css'
-
+import styles from "../Styled/report.module.css";
 
 export const Report = () => {
   const [alltask, setAllTask] = useState([]);
   const [page, setpage] = useState(0);
-  const [limit, setlimit] = useState(5);
+
   const [totalPage, setTotalPage] = useState(0);
-  console.log(alltask);
+  // console.log(alltask);
 
   const getTimer = async (url) => {
     const headers = {
@@ -36,7 +34,6 @@ export const Report = () => {
         headers,
       });
       return res.data;
-      console.log(res);
     } catch (error) {
       console.log("error", error);
     }
@@ -55,25 +52,16 @@ export const Report = () => {
   };
 
   useEffect(() => {
-    const getData = async () => {
+    const getData = async (limit = 5) => {
       let url1 = `https://blooming-sea-03900.herokuapp.com/timer?page=${page}&limit=${limit}`;
 
       let res = await getTimer(url1);
-      console.log(res);
-      setAllTask(res);
+      // console.log(res);
+      setAllTask(res.task);
+      setTotalPage(res.totalPage);
     };
     getData();
-  }, [page, limit]);
-  useEffect(() => {
-    const getTotalNoOfPage = async () => {
-      let url2 = "https://blooming-sea-03900.herokuapp.com/timer";
-
-      let res = await getTimer(url2);
-      console.log(res);
-      setTotalPage(res);
-    };
-    getTotalNoOfPage();
-  }, []);
+  }, [page]);
 
   return (
     <Box className={styles.reportCont}>
@@ -103,13 +91,16 @@ export const Report = () => {
         </Table>
       </TableContainer>
       <Box className={styles.btnGr}>
-        <HStack >
-          <Button onClick={handlePrev}>Prev</Button>
+        <HStack>
+          <Button disabled={page <= 0} onClick={handlePrev}>
+            Prev
+          </Button>
           <Text>{page + 1}</Text>
-          <Button onClick={handleNext}>Next</Button>
+          <Button disabled={page >= totalPage} onClick={handleNext}>
+            Next
+          </Button>
         </HStack>
       </Box>
-      
     </Box>
   );
 };
