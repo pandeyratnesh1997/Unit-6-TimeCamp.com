@@ -25,7 +25,7 @@ TimeCamp is a simple, yet feature-rich time tracking app to help you gain insigh
 
 
 ## Collaborators:-
-#1)Ratnesh Pandey(https://github.com/pandeyratnesh1997)
+##1)Ratnesh Pandey(https://github.com/pandeyratnesh1997)
 
 #2)Harapriya Sahu(https://github.com/Harapriyasahu)
 
